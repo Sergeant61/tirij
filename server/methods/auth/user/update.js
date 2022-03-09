@@ -4,14 +4,14 @@ new ValidatedMethod({
   name: 'user.update',
   mixins: [RoleMixin],
   roles: ['permissions.user.update'],
-  validate: new SimpleSchema({
+  schema: new SimpleSchema({
     _id: SimpleSchema.RegEx.Id,
     emailAddress: String,
     password: { type: String, optional: true },
     profile: { type: Object, blackbox: true },
     roleIds: Array,
     'roleIds.$': String
-  }).validator(),
+  }),
   run: function (data) {
     this.unblock();
     const { emailAddress, password, profile, roleIds, _id } = data;

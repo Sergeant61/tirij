@@ -4,9 +4,9 @@ new ValidatedMethod({
   name: 'link.delete',
   mixins: [RoleMixin],
   roles: ['permissions.link.delete'],
-  validate: new SimpleSchema({
+  schema: new SimpleSchema({
     _id: SimpleSchema.RegEx.Id
-  }).validator(),
+  }),
   run: async function (data) {
     this.unblock();
     const { _id } = data;

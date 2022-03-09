@@ -4,10 +4,10 @@ new ValidatedMethod({
   name: 'link.update',
   mixins: [RoleMixin],
   roles: ['permissions.link.update'],
-  validate: new SimpleSchema({
+  schema: new SimpleSchema({
     _id: SimpleSchema.RegEx.Id,
     link: LinkSchema
-  }).validator(),
+  }),
   run: function (data) {
     this.unblock();
     const { _id, link } = data

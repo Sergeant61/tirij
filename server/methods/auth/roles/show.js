@@ -3,9 +3,9 @@ import SimpleSchema from 'simpl-schema';
 new ValidatedMethod({
   name: 'roles.show',
   mixins: [SignedInMixin],
-  validate: new SimpleSchema({
+  schema: new SimpleSchema({
     _id: { type: String }
-  }).validator(),
+  }),
   run: function (data) {
     this.unblock();
     const { _id } = data;

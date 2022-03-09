@@ -2,7 +2,7 @@ export const name = 'last-edit-user';
 import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 
 checkNpmVersions({
-  'simpl-schema': '1.10.2'
+  'simpl-schema': '1.12.0'
 }, 'bordo:last-edit-user');
 
 const SimpleSchema = require('simpl-schema');

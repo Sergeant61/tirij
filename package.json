@@ -23,9 +23,11 @@
     "moment": "^2.29.1",
     "notiflix": "^3.2.2",
     "popper.js": "^1.16.1",
-    "simpl-schema": "^1.10.2",
+    "shortid": "^2.2.16",
+    "simpl-schema": "^1.12.0",
     "slugify": "^1.4.6",
     "svelte": "^3.46.4",
+    "swagger-ui": "^4.6.1",
     "sweetalert2": "^11.1.10"
   },
   "meteor": {

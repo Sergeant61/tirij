@@ -1,0 +1,31 @@
+{
+  "_locale": "en",
+  "_namespace": "auth",
+
+  "methods": {
+    "marketplaceSlugRequired": "Marketplace must be specified!",
+    "shopSlugRequired": "Shop must be specified!",
+    "userNotFound": "No user found!",
+    "onlyWhatsgooUser": "Only WhatsGO users can do this action!",
+    "tokenExpired": "Cannot be processed because the link has expired!",
+    "signupFailed": "An error occurred while creating the user",
+    "signupForbidden": "The system is temporarily closed to user registration",
+    "alreadyExists": "User already exists!",
+    "otp": "Your One-Time-Password: {$code}",
+    "cantDeleteBot": "You cannot delete the bot!",
+    "cantDeleteLastOwner": "The store must have at least one \"Owner\" user!",
+    "cantUpdateBot": "You cannot update the bot!",
+    "passwordNotValid": "Current password is not valid!",
+    "sameAsOldPassword": "The new password you entered is the same as the old password."
+  },
+  
+  "validations": {
+    "title" : "Password Requirements",
+    "lowercase" : "Must contain 1 lowercase character.",
+    "uppercase" : "Must contain 1 uppercase character.",
+    "specialChars" : "Must contain 1 special character.",
+    "digit" : "Must contain 1 digit.",
+    "length" : "Must be at least 8 characters long.",
+    "repeat" : "You must not use more than 3 characters in your password."
+  }
+}

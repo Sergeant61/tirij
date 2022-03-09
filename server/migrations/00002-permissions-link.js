@@ -16,7 +16,7 @@ Migrations.add({
     ], 'permissions.link');
 
     Roles.addRolesToParent([
-      'permissions.link.read',
+      'permissions.link',
     ], 'roles.user');
 
     Roles.addRolesToParent([

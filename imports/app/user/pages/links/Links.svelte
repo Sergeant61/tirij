@@ -6,16 +6,20 @@
 
   //* COMPONENTS
   import Navbar from "../../../public/components/Navbar.svelte";
+  import Pagination from "../../../public/components/Pagination.svelte";
   import NavbarUser from "../../components/Navbar.svelte";
 
-  //* MODAL
+  //* MODALS
   import LinkCreate from "../../modals/link-create/LinkCreate.svelte";
+
+  //* HELPERS
+  import LinkExpireType from "../../helpers/link-expire-type";
 
   let links = [],
     selectedLink,
     pagination = {
       currentPage: 1,
-      pageItems: 2,
+      pageItems: 10,
       totalCount: 0,
       totalPages: 0,
     };
@@ -42,6 +46,7 @@
       }
 
       links = result.data;
+      console.log(links);
       pagination.currentPage = result.options.pagination.currentPage;
       pagination.pageItems = result.options.pagination.pageItems;
       pagination.totalCount = result.options.pagination.totalCount;
@@ -61,26 +66,32 @@
 
 <div class="container py-2">
   {#if links.length > 0}
-    <table class="table">
+    <div class="d-flex justify-content-end pb-2">
+      <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#brdLinkCreateModal"> <i class="fas fa-plus" /> Add Link</button>
+    </div>
+
+    <table class="table table-dark table-striped">
       <thead>
         <tr>
-          <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th class="brd-rounded-start">Short Link</th>
+          <th class="text-center">Expire Type</th>
+          <th>Expire Date</th>
+          <th class="brd-rounded-end text-end">Click Max/Count</th>
         </tr>
       </thead>
       <tbody>
         {#each links as link (link._id)}
           <tr>
-            <th>{link.expireType}</th>
+            <th> <a class="text-white" target="_blank" href="{Meteor.absoluteUrl()}l/{link.shortId || link._id}">{Meteor.absoluteUrl()}l/{link.shortId || link._id}</a> </th>
+            <th class="text-center">{LinkExpireType(link.expireType).text}</th>
             <td>{formatDateTime(link.expireAt)}</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <td class="text-end">{link?.clickCount?.max || "-"} / {link?.clickCount?.count || 0} </td>
           </tr>
         {/each}
       </tbody>
     </table>
+
+    <Pagination {pagination}/>
   {:else}
     <div class="d-flex justify-content-center">
       <div class="alert alert-info text-center " role="alert">
@@ -90,11 +101,18 @@
     </div>
   {/if}
 
-  <LinkCreate on:onCreated={createdLink} />
+  <LinkCreate on:onCreatedLink={createdLink} />
 </div>
 
 <style>
   .alert-info {
     width: 500px;
+  }
+
+  .brd-rounded-start {
+    border-radius: 10px 0px 0px 10px;
+  }
+  .brd-rounded-end {
+    border-radius: 0px 10px 10px 0px;
   }
 </style>

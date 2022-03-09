@@ -2,13 +2,11 @@ import SimpleSchema from 'simpl-schema';
 
 new ValidatedMethod({
   name: 'user.create',
-  // mixins: [RoleMixin],
-  // roles: ['permissions.user.create'],
-  validate: new SimpleSchema({
+  schema: new SimpleSchema({
     emailAddress: String,
     password: String,
     profile: { type: Object, blackbox: true },
-  }).validator(),
+  }),
   run: function (data) {
     this.unblock();
     const { emailAddress, password, profile, roleIds, personnelId } = data
@@ -22,6 +20,3 @@ new ValidatedMethod({
     Roles.addUsersToRoles(userId, 'roles.user', null);
   }
 });
-
-
-

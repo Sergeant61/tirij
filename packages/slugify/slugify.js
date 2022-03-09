@@ -2,7 +2,7 @@ export const name = 'slugify';
 import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 
 checkNpmVersions({
-  'simpl-schema': '1.10.2',
+  'simpl-schema': '1.12.0',
   'slugify': '1.4.6'
 }, 'bordo:auto-dates');
 

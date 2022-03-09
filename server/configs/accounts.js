@@ -5,7 +5,6 @@ Accounts.onCreateUser(function (options, user) {
   user.profile.status = 'active';
   user.profile.isAdmin = false;
 
-  // Roles.addUsersToRoles(user._id, ['roles.user'], null);
   return user;
 });
 

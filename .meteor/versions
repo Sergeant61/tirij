@@ -13,6 +13,7 @@ boilerplate-generator@1.7.1
 bordo:auto-dates@0.0.1
 bordo:create-user@0.0.1
 bordo:last-edit-user@0.0.1
+bordo:mor@0.0.1
 bordo:non-deletable@0.0.1
 bordo:slugify@0.0.1
 bordo:soft-remove@0.0.1

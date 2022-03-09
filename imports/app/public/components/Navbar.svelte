@@ -22,6 +22,9 @@
         <li class="nav-item">
           <a href="/contract" class="nav-link" use:active active-class="fw-bold" aria-current="about">Contract</a>
         </li>
+        <li class="nav-item">
+          <a href="/api" class="nav-link" use:active active-class="fw-bold" aria-current="about">Api</a>
+        </li>
       </ul>
 
       <div class="d-flex gap-2">

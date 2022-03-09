@@ -4,9 +4,9 @@ new ValidatedMethod({
   name: 'link.show',
   mixins: [RoleMixin],
   roles: ['permissions.link.read'],
-  validate: new SimpleSchema({
+  schema: new SimpleSchema({
     _id: SimpleSchema.RegEx.Id,
-  }).validator(),
+  }),
   run: async function (data) {
     this.unblock();
     const { _id } = data;

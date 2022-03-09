@@ -2,7 +2,7 @@ export const name = 'create-user';
 import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 
 checkNpmVersions({
-  'simpl-schema': '1.10.2'
+  'simpl-schema': '1.12.0'
 }, 'bordo:create-user');
 
 const SimpleSchema = require('simpl-schema');
