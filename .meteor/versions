@@ -71,6 +71,8 @@ mongo@1.14.6
 mongo-decimal@0.1.2
 mongo-dev-server@1.1.0
 mongo-id@1.0.8
+montiapm:agent@2.45.1
+montiapm:meteorx@2.2.0
 mys:fonts@0.0.2
 npm-mongo@4.3.1
 ordered-dict@1.1.0
@@ -104,4 +106,5 @@ webapp@1.13.1
 webapp-hashing@1.1.0
 zodern:melte@1.5.2
 zodern:melte-compiler@1.2.2
+zodern:meteor-package-versions@0.2.1
 zodiase:function-bind@0.0.1

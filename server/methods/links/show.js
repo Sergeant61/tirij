@@ -10,9 +10,10 @@ new ValidatedMethod({
   run: async function (data) {
     this.unblock();
     const { _id } = data;
+    const userId = Meteor.userId();
 
     return Links.findOne({
-      _id: _id
+      _id: _id, userId: userId
     });
   }
 });

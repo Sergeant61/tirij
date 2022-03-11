@@ -18,9 +18,6 @@ const _schema = new SimpleSchema({
         }
       } catch (error) {
         console.log('Data was recorded without user registration.');
-        console.log('<===========================================');
-        console.log(this);
-        console.log('===========================================>');
       }
     },
     optional: true

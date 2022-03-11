@@ -44,6 +44,7 @@ edgee:slingshot
 sakulstra:aggregate
 http
 remcoder:chronos
+montiapm:agent
 
 bordo:soft-remove
 bordo:auto-dates

@@ -10,8 +10,9 @@ new ValidatedMethod({
   run: async function (data) {
     this.unblock();
     const { _id } = data;
+    const userId = Meteor.userId();
 
-    Links.softRemove({ _id: _id });
+    Links.softRemove({ _id: _id, userId:userId });
   }
 });
 

@@ -10,9 +10,10 @@ new ValidatedMethod({
   }),
   run: function (data) {
     this.unblock();
-    const { _id, link } = data
+    const { _id, link } = data;
+    const userId = Meteor.userId();
 
-    const id = Links.update({ _id: _id }, {
+    const id = Links.update({ _id: _id, userId: userId }, {
       $set: link
     });
 

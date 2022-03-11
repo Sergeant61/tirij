@@ -10,7 +10,8 @@ new ValidatedMethod({
   run: function (data) {
     this.unblock();
     const { options } = data
+    const userId = Meteor.userId();
 
-    return FetchByIndex(Links, {}, options, null);
+    return FetchByIndex(Links, { userId: userId }, options, null);
   }
 });

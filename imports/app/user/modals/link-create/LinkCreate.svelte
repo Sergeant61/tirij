@@ -29,8 +29,6 @@
       link: {
         longUrl: longUrl,
         expireType: expireType,
-        expireAt: expireAt,
-        maxClickCount: maxClickCount,
       },
     };
 

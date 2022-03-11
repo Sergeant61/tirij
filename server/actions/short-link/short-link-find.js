@@ -13,7 +13,7 @@ ActionShortLinkFind = function (_id) {
       longLink = link.longUrl;
       break;
     case 'count':
-      if (link.maxClickCount > (link.clickCount?.count || 0)) {
+      if ((link.clickCount?.max || 0) > (link.clickCount?.count || 0)) {
         longLink = link.longUrl;
       }
       break;
@@ -25,7 +25,7 @@ ActionShortLinkFind = function (_id) {
       break;
   }
 
-  Links.update({ _id: _id }, {
+  Links.update({ _id: link._id }, {
     $set: {
       'clickCount.count': (link.clickCount?.count || 0) + 1
     }

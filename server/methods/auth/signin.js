@@ -12,8 +12,6 @@ new ValidatedMethod({
 
     const user = Meteor.users.findOne({ 'emails.address': data.email });
 
-    console.log(1, user);
-
     if (!user) {
       ErrorHandler('error', i18n.__('auth.methods', 'userNotFound'));
     }
