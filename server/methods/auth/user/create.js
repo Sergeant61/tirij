@@ -5,18 +5,16 @@ new ValidatedMethod({
   schema: new SimpleSchema({
     emailAddress: String,
     password: String,
-    profile: { type: Object, blackbox: true },
+    profile: UserProfileSchema.omit('isAdmin'),
   }),
   run: function (data) {
     this.unblock();
-    const { emailAddress, password, profile, roleIds, personnelId } = data
+    const { emailAddress, password, profile } = data
 
-    const userId = Accounts.createUser({
+    Accounts.createUser({
       email: emailAddress,
       password: password,
       profile: profile
     });
-
-    Roles.addUsersToRoles(userId, 'roles.user', null);
   }
 });

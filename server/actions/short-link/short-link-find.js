@@ -1,7 +1,6 @@
 ActionShortLinkFind = function (_id) {
   let longLink = null;
 
-  console.log(_id);
   const link = Links.findOne({ $or: [{ _id: _id }, { shortId: _id }] });
 
   if (!link) {

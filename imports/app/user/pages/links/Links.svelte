@@ -1,13 +1,15 @@
 <script>
   import { Meteor } from "meteor/meteor";
   import { Loading } from "notiflix/build/notiflix-loading-aio";
-  import { router } from "tinro";
+  import { Confirm } from "notiflix/build/notiflix-confirm-aio";
+  import { meta } from "tinro";
   import formatDateTime from "../../../../../lib/helper/format-date-time.js";
 
   //* COMPONENTS
   import Navbar from "../../../public/components/Navbar.svelte";
   import Pagination from "../../../public/components/Pagination.svelte";
   import NavbarUser from "../../components/Navbar.svelte";
+  import NotFound from "../../components/NotFound.svelte";
 
   //* MODALS
   import LinkCreate from "../../modals/link-create/LinkCreate.svelte";
@@ -15,7 +17,10 @@
   //* HELPERS
   import LinkExpireType from "../../helpers/link-expire-type";
 
+  const slug = meta().params?.slug || null;
+
   let links = [],
+    shortLinkDomain = Meteor.settings?.public?.shortLinkDomain || null,
     selectedLink,
     pagination = {
       currentPage: 1,
@@ -28,7 +33,12 @@
     const currentPage = pagination.currentPage;
     const pageItems = pagination.pageItems;
 
+    if (!slug) {
+      return;
+    }
+
     const obj = {
+      slug: slug,
       options: {
         pagination: {
           currentPage: currentPage,
@@ -38,7 +48,7 @@
     };
 
     Loading.hourglass();
-    Meteor.call("link.list", obj, function (error, result) {
+    Meteor.call("app.links.list", obj, function (error, result) {
       Loading.remove();
       if (error) {
         ErrorHandler.show(error);
@@ -46,69 +56,93 @@
       }
 
       links = result.data;
-      console.log(links);
       pagination.currentPage = result.options.pagination.currentPage;
       pagination.pageItems = result.options.pagination.pageItems;
       pagination.totalCount = result.options.pagination.totalCount;
       pagination.totalPages = result.options.pagination.totalPages;
     });
   };
-
   getLinks();
 
   const createdLink = () => {
     getLinks();
+  };
+
+  const deleteLink = (_id) => {
+    Confirm.show(
+      "Links App",
+      "Are you sure you want to delete?",
+      "Yes",
+      "No",
+      () => {
+        Meteor.call("app.links.delete", { slug: slug, _id: _id }, function (error, result) {
+          Loading.remove();
+          if (error) {
+            ErrorHandler.show(error);
+            return;
+          }
+
+          getLinks();
+        });
+      },
+      () => {}
+    );
   };
 </script>
 
 <Navbar />
 <NavbarUser title="Links" />
 
-<div class="container py-2">
+<div class="container py-3 d-flex flex-fill flex-column">
   {#if links.length > 0}
-    <div class="d-flex justify-content-end pb-2">
+    <div class="flex-grow-0 d-flex justify-content-end pb-2">
       <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#brdLinkCreateModal"> <i class="fas fa-plus" /> Add Link</button>
     </div>
 
-    <table class="table table-dark table-striped">
-      <thead>
-        <tr>
-          <th class="brd-rounded-start">Short Link</th>
-          <th class="text-center">Expire Type</th>
-          <th>Expire Date</th>
-          <th class="brd-rounded-end text-end">Click Max/Count</th>
-        </tr>
-      </thead>
-      <tbody>
-        {#each links as link (link._id)}
+    <div class="flex-grow-1 overflow-auto">
+      <table class="table table-striped">
+        <thead>
           <tr>
-            <th> <a class="text-white" target="_blank" href="{Meteor.absoluteUrl()}l/{link.shortId || link._id}">{Meteor.absoluteUrl()}l/{link.shortId || link._id}</a> </th>
-            <th class="text-center">{LinkExpireType(link.expireType).text}</th>
-            <td>{formatDateTime(link.expireAt)}</td>
-            <td class="text-end">{link?.clickCount?.max || "-"} / {link?.clickCount?.count || 0} </td>
+            <th class="brd-rounded-start">Short Link</th>
+            <th class="text-center">Expire Type</th>
+            <th>Expire Date</th>
+            <th class="text-center">Click Max/Count</th>
+            <th class="brd-rounded-end text-end">#</th>
           </tr>
-        {/each}
-      </tbody>
-    </table>
-
-    <Pagination {pagination}/>
-  {:else}
-    <div class="d-flex justify-content-center">
-      <div class="alert alert-info text-center " role="alert">
-        <p>Sonuç bulunamadı</p>
-        <button class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#brdLinkCreateModal"> <i class="fas fa-plus" /> Add Link</button>
-      </div>
+        </thead>
+        <tbody>
+          {#each links as link (link._id)}
+            <tr class="align-middle">
+              <th>
+                <a target="_blank" href="{Meteor.absoluteUrl()}l/{link.shortId || link._id}">{Meteor.absoluteUrl()}l/{link.shortId || link._id}</a>
+                {#if shortLinkDomain}
+                  <br />
+                  <a target="_blank" href="https://{shortLinkDomain}/{link.shortId || link._id}">https://{shortLinkDomain}/{link.shortId || link._id}</a>
+                {/if}
+              </th>
+              <th class="text-center">{LinkExpireType(link.expireType).text}</th>
+              <td>{formatDateTime(link.expireAt)}</td>
+              <td class="text-center">{link?.clickCount?.max || "-"} / {link?.clickCount?.count || 0} </td>
+              <td class="text-end">
+                <button class="btn btn-danger" on:click={deleteLink(link._id)}> <i class="fas fa-trash-alt" /> Delete</button>
+              </td>
+            </tr>
+          {/each}
+        </tbody>
+      </table>
     </div>
+
+    <div class="flex-grow-0">
+      <Pagination {pagination} />
+    </div>
+  {:else}
+    <NotFound title="Not found links" addTitle="Add link" bsTarget="brdLinkCreateModal" />
   {/if}
 
   <LinkCreate on:onCreatedLink={createdLink} />
 </div>
 
 <style>
-  .alert-info {
-    width: 500px;
-  }
-
   .brd-rounded-start {
     border-radius: 10px 0px 0px 10px;
   }

@@ -1,19 +1,19 @@
 import SimpleSchema from 'simpl-schema';
 
 new ValidatedMethod({
-  name: 'link.update',
+  name: 'app.links.update',
   mixins: [RoleMixin],
-  roles: ['permissions.link.update'],
+  roles: ['permissions.links.update'],
   schema: new SimpleSchema({
+    slug: String,
     _id: SimpleSchema.RegEx.Id,
-    link: LinkSchema
+    link: LinkSchema.omit('slug', 'shortId')
   }),
   run: function (data) {
     this.unblock();
-    const { _id, link } = data;
-    const userId = Meteor.userId();
+    const { slug, _id, link } = data;
 
-    const id = Links.update({ _id: _id, userId: userId }, {
+    const id = Links.update({ _id: _id, slug: slug }, {
       $set: link
     });
 

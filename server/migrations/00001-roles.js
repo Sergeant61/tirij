@@ -1,8 +1,9 @@
 Migrations.add({
   version: 1,
-  name: 'Roller tanımlanıyor ve admin user oluşturuluyor.',
+  name: 'Roller tanımlanıyor ve admin kullanıcısı oluşturuluyor.',
   up: function () {
     Roles.createRole('roles.admin');
+    Roles.createRole('roles.owned');
     Roles.createRole('roles.user');
 
     const userId = Accounts.createUser({

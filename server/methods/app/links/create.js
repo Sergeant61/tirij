@@ -2,17 +2,18 @@ import SimpleSchema from 'simpl-schema';
 const shortid = require('shortid');
 
 new ValidatedMethod({
-  name: 'link.create',
+  name: 'app.links.create',
   mixins: [RoleMixin],
-  roles: ['permissions.link.create'],
+  roles: ['permissions.links.create'],
   schema: new SimpleSchema({
-    link: LinkSchema.omit('userId', 'shortId')
+    slug: String,
+    link: LinkSchema.omit('slug', 'shortId')
   }),
   run: function (data) {
     this.unblock();
-    const { link } = data
+    const { slug, link } = data
 
-    link.userId = Meteor.userId();
+    link.slug = slug;
     link.shortId = shortid.generate();
 
     const id = Links.insert(link);

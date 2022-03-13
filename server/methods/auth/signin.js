@@ -8,8 +8,6 @@ new ValidatedMethod({
     password: String,
   }),
   run: function (data) {
-    console.log(data);
-
     const user = Meteor.users.findOne({ 'emails.address': data.email });
 
     if (!user) {

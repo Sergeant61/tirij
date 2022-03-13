@@ -17,7 +17,6 @@
       return;
     }
 
-    console.log(result.apis);
     apis = result.apis;
   });
 
@@ -28,9 +27,6 @@
   };
 
   const showApi = (api) => {
-
-    console.log(api);
-
     SwaggerUI({
       dom_id: "#brdAccountPageSwagger",
       spec: api.spec,
@@ -41,7 +37,7 @@
 
 <Navbar />
 
-<div class="container">
+<div class="container-fluid overflow-auto">
   <div class="row">
     <div class="col-12 mt-3">
       <div class="d-flex gap-2 overflow-auto pb-2">

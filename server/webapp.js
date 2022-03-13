@@ -3,8 +3,6 @@ const handler = (req, res) => {
   const _id = splited.substring(splited.lastIndexOf('/')).replace('/', '');
   const longUrl = ActionShortLinkFind(_id);
 
-  console.log(longUrl);
-
   res.statusMessage = 'Orientation';
   if (longUrl) {
     res.writeHead(302, {
@@ -22,7 +20,6 @@ const handler = (req, res) => {
 WebApp.connectHandlers.use('/l', function (req, res, next) {
 
   const host = req.headers.host;
-  console.log(req.headers);
 
   if (host === (Meteor.settings?.public?.rootDomain || null)) {
     handler(req, res);

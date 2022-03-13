@@ -1,11 +1,13 @@
 <script>
   import { onMount, createEventDispatcher } from "svelte";
+  import { meta } from "tinro";
 
   import bootstrap from "bootstrap";
   import ErrorHandler from "/lib/utils/error-handler/client/error-handler.js";
   import { Loading } from "notiflix/build/notiflix-loading-aio";
   import LinkExpireType from "../../helpers/link-expire-type";
 
+  const slug = meta().params?.slug || null;
   let modalElement, modal, expireType;
 
   onMount(() => {
@@ -26,6 +28,7 @@
     const maxClickCount = event.target.maxClickCount?.value;
 
     const obj = {
+      slug: slug,
       link: {
         longUrl: longUrl,
         expireType: expireType,
@@ -33,18 +36,18 @@
     };
 
     if (expireAt) {
-      obj.link.expireAt = new Date(expireAt);
+      obj.links.expireAt = new Date(expireAt);
     }
 
     if (maxClickCount) {
-      obj.link.clickCount = {
+      obj.links.clickCount = {
         max: parseInt(maxClickCount),
         count: 0,
       };
     }
 
     Loading.hourglass();
-    Meteor.call("link.create", obj, function (error, result) {
+    Meteor.call("app.links.create", obj, function (error, result) {
       Loading.remove();
       if (error) {
         ErrorHandler.show(error);
