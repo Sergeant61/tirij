@@ -18,7 +18,8 @@
 
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
-    <a href="/"><img src="/assets/images/svelte-logo-horizontal.svg" alt="" height="50" class="d-inline-block align-text-top" /> </a>
+    <a href="/" class="navbar-brand fs-2">Links</a>
+    <!-- <a href="/"><img src="/assets/images/svelte-logo-horizontal.svg" alt="" height="50" class="d-inline-block align-text-top" /> </a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" />
     </button>
