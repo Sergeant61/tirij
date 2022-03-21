@@ -36,11 +36,11 @@
     };
 
     if (expireAt) {
-      obj.links.expireAt = new Date(expireAt);
+      obj.link.expireAt = new Date(expireAt);
     }
 
     if (maxClickCount) {
-      obj.links.clickCount = {
+      obj.link.clickCount = {
         max: parseInt(maxClickCount),
         count: 0,
       };

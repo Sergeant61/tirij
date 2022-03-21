@@ -1,6 +1,6 @@
 {
   "public": {
-    "rootDomain": "localhost:3050",
+    "rootDomain": "localhost:5000",
     "shortLinkDomain": "recepozen.click"
   },
   "monti": {
