@@ -17,7 +17,7 @@
             <a class="nav-link active" use:active aria-current="page" href="/user/store/{slug}/dashboard">Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" use:active aria-current="page" href="/user/store/{slug}/links">Links</a>
+            <a class="nav-link" use:active aria-current="page" href="/user/store/{slug}/links">Tirij</a>
           </li>
         {/if}
       </ul>

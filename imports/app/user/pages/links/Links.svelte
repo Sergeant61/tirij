@@ -124,7 +124,7 @@
               <td>{formatDateTime(link.expireAt)}</td>
               <td class="text-center">{link?.clickCount?.max || "-"} / {link?.clickCount?.count || 0} </td>
               <td class="text-end">
-                <button class="btn btn-danger" on:click={deleteLink(link._id)}> <i class="fas fa-trash-alt" /> Delete</button>
+                <button class="btn btn-danger" on:click={()=> deleteLink(link._id)}> <i class="fas fa-trash-alt" /> Delete</button>
               </td>
             </tr>
           {/each}

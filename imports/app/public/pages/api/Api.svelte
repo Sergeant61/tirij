@@ -47,7 +47,7 @@
             <div>
               <span class="d-block fw-bold">{toHumanReadable(api.name)}</span>
             </div>
-            <button on:click={showApi(api)} class="btn btn-outline-primary text-nowrap stretched-link brd-api">Show</button>
+            <button on:click={()=> showApi(api)} class="btn btn-outline-primary text-nowrap stretched-link brd-api">Show</button>
           </div>
         {/each}
       </div>

@@ -8,12 +8,7 @@ new ValidatedMethod({
   }),
   run: function (data) {
     this.unblock();
-    const { store } = data
-
-    const userId = Meteor.userId();
-    const _id = Stores.insert(store);
-    const _store = Stores.findOne({ _id: _id });
-
-    Roles.addUsersToRoles(userId, 'roles.owned', _store.slug);
+    const { store } = data;
+    return ActionStoreCreate(Meteor.userId(), store);
   }
 });

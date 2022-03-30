@@ -2,14 +2,14 @@
 
 $font-family-base: "Montserrat", sans-serif;
 
-$primary: #80226b;
-$secondary: #143b68;
-// $success:#9BBB59;
-// $danger:#D52201;
-// $info:#00B0F0;
-// $warning:#FF9203;
-// $light:#f8f9fa;
-// $dark:#343434;
+$primary: #b54726;
+$secondary: #e83d51;
+$success:#5eab06;
+$danger:#f50266;
+$info:#ed7a0f;
+$warning:#ffc26e;
+$light:#dfdfd7;
+$dark:#161416;
 
 $themeCustomRadius: 10px;
 $font-size-base: 0.9rem;
@@ -27,19 +27,6 @@ $utilities: (
     ),
   ),
 );
-
-.bg-dark-thead {
-  background-color: #364b5a !important;
-  color: #fff !important;
-}
-
-.bg-gray {
-  background-color: #4c5067 !important;
-}
-
-.small {
-  font-size: 0.775em !important;
-}
 
 @import "{}/node_modules/bootstrap/scss/bootstrap.scss";
 
@@ -132,31 +119,3 @@ img {
 }
 
 //! end
-
-.blog-header {
-  line-height: 1;
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.blog-header-logo {
-  font-size: 2.25rem;
-}
-
-.blog-header-logo:hover {
-  text-decoration: none;
-}
-
-.brd-image {
-  object-fit: cover;
-  width: 175px;
-  height: 175px;
-}
-
-.unselectable {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}

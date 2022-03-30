@@ -1,0 +1,12 @@
+{
+  "_locale": "tr",
+  "_namespace": "emails",
+
+  "enrollment": {
+    "subject": "Tirij: Hoşgeldiniz"
+  },
+
+  "resetPassword": {
+    "subject": "Şifre Sıfırla, {$fullname}"
+  }
+}

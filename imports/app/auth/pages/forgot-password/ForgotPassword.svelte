@@ -30,22 +30,22 @@
 <div class="container-fluid bg-light">
   <div class="d-flex flex-column flex-fill align-items-center h-100">
     <div class="form-sign">
-      <h1 class="fw-bolder display-3">Şifremi Unuttum</h1>
-      <p class="pb-3">Lütfen e-mail adresinizi giriniz.</p>
+      <h1 class="fw-bolder display-3">Forgot Password</h1>
+      <p class="pb-3">Please enter your e-mail address.</p>
 
       <form on:submit={handleSubmit} class="brd-loading-section">
         <div class="form-floating">
           <input type="email" class="form-control" id="emailAddress" required placeholder=" " />
-          <label for="emailAddress">E-mail addres</label>
+          <label for="emailAddress">E-mail address</label>
         </div>
 
         <div class="d-grid gap-2 py-4">
-          <button class="btn btn-outline-primary btn-lg" type="submit">Şifremi sıfırla</button>
+          <button class="btn btn-outline-primary btn-lg" type="submit">OK</button>
         </div>
 
         <div class="d-flex justify-content-between">
-          <a href="/auth/sign-in" class="text-black-50 pt-3">Giriş Yap</a>
-          <a href="/auth/sign-up" class="text-black-50 pt-3">Kayıt ol</a>
+          <a href="/auth/sign-in" class="text-black-50 pt-3">Sign In</a>
+          <a href="/auth/sign-up" class="text-black-50 pt-3">Sign Up</a>
         </div>
       </form>
     </div>

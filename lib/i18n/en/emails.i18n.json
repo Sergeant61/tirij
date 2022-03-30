@@ -1,0 +1,12 @@
+{
+  "_locale": "en",
+  "_namespace": "emails",
+
+  "enrollment": {
+    "subject": "Tirij: Welcome"
+  },
+
+  "resetPassword": {
+    "subject": "Reset Password, {$fullname}"
+  }
+}

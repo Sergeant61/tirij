@@ -1,5 +1,4 @@
 .publicPageHome {
-
   .brd-free-input {
     max-width: 700px;
   }
@@ -17,5 +16,17 @@
       border-top-left-radius: inherit;
       border-top-right-radius: inherit;
     }
+  }
+
+  .brd-half-width {
+    width: 50%;
+
+    @media (max-width: 576px) {
+      width: 100%;
+    }
+  }
+
+  .brd-dowland-img{
+    width: 40px;
   }
 }

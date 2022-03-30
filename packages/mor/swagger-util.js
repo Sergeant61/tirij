@@ -149,7 +149,7 @@ SwaggerUtil = {
       info: {
         description: '',
         version: '',
-        title: 'Links Api'
+        title: 'Tirij Api'
       },
       components: {
         securitySchemes: {

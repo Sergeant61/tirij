@@ -12,12 +12,12 @@
     const confirmPassword = event.target.confirmPassword.value;
 
     if (!token) {
-      ErrorHandler.show({ reason: "Sıfırlama anahtarı bulunamadı." });
+      ErrorHandler.show({ reason: "Reset key not found." });
       return;
     }
 
     if (password != confirmPassword) {
-      ErrorHandler.show({ reason: "Girdiğiniz şifreler aynı değil" });
+      ErrorHandler.show({ reason: "The passwords you entered are not the same." });
       return;
     }
 
@@ -39,27 +39,27 @@
 <div class="authPageSetPassword container-fluid bg-light">
   <div class="d-flex flex-column flex-fill align-items-center h-100">
     <div class="form-sign">
-      <h1 class="fw-bolder display-3">Şifre Ayarla</h1>
-      <p class="pb-3">Yeni şifre ayala</p>
+      <h1 class="fw-bolder display-3">Set Password</h1>
+      <p class="pb-3">New set password</p>
 
-      <form on:submit="{handleSubmit}" class="brd-loading-section">
+      <form on:submit={handleSubmit} class="brd-loading-section">
         <div class="form-floating">
           <input type="password" class="form-control brd-border-bottom-unset" id="password" autocomplete="off" placeholder=" " />
-          <label for="password">Şifre</label>
+          <label for="password">Password</label>
         </div>
 
         <div class="form-floating">
           <input type="password" class="form-control brd-border-top-unset" id="confirmPassword" autocomplete="off" placeholder=" " />
-          <label for="confirmPassword">Şifre Onayı</label>
+          <label for="confirmPassword">Comfirm password</label>
         </div>
 
         <div class="d-grid gap-2 py-4">
-          <button class="btn btn-outline-primary btn-lg" type="submit">Onayla</button>
+          <button class="btn btn-outline-primary btn-lg" type="submit">OK</button>
         </div>
 
         <div class="d-flex justify-content-between">
-          <a href="/auth/sign-in" class="text-black-50 pt-3">Giriş Yap</a>
-          <a href="/auth/sign-up" class="text-black-50 pt-3">Kayıt Ol</a>
+          <a href="/auth/sign-in" class="text-black-50 pt-3">Sign In</a>
+          <a href="/auth/sign-up" class="text-black-50 pt-3">Sign Up</a>
         </div>
       </form>
     </div>

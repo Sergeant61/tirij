@@ -7,6 +7,7 @@
   import ForgotPassword from "../pages/forgot-password/ForgotPassword.svelte";
   import ForgotPasswordVerify from "../pages/forgot-password-verify/ForgotPasswordVerify.svelte";
   import SetPassword from "../pages/set-password/SetPassword.svelte";
+  import Footer from "../../public/components/Footer.svelte";
 
   //* COMPONENTS
 </script>
@@ -18,5 +19,8 @@
     <Route path="/forgot-password"><ForgotPassword /></Route>
     <Route path="/forgot-password-verify"><ForgotPasswordVerify /></Route>
     <Route path="/set-password"><SetPassword /></Route>
+  </div>
+  <div class="mt-2">
+    <Footer />
   </div>
 </div>
