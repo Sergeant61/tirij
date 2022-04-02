@@ -5,8 +5,8 @@
   //* COMPONENTS
   import Navbar from "../../../public/components/Navbar.svelte";
   import Pagination from "../../../public/components/Pagination.svelte";
-  import NavbarUser from "../../components/Navbar.svelte";
-  import NotFound from "../../components/NotFound.svelte";
+  import NavbarSub from "../../../public/components/NavbarSub.svelte";
+  import NotFound from "../../../public/components/NotFound.svelte";
 
   //* MODALS
   import StoreCreate from "../../modals/store-create/StoreCreate.svelte";
@@ -55,7 +55,7 @@
 </script>
 
 <Navbar />
-<NavbarUser title="Stores" />
+<NavbarSub title="Stores" />
 <div class="container py-3 d-flex gap-2 flex-fill flex-column">
   {#if stores.length > 0}
     <div class="flex-grow-0 d-flex justify-content-end pb-2">
@@ -70,7 +70,7 @@
             <span class="ms-2 my-auto">{store.name}</span>
 
             <div class="d-flex flex-fill gap-2 justify-content-end">
-              <a href="/user/store/{store.slug}/dashboard" class="btn btn-outline-success btn-sm">Choose</a>
+              <a href="/stores/{store.slug}/dashboard" class="btn btn-outline-success btn-sm">Choose</a>
             </div>
 
           </div>

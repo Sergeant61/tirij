@@ -41,8 +41,6 @@
         return;
       }
 
-      console.log(result);
-
       const { token, when, userId } = result;
       localStorage.setItem("Meteor.loginToken", token);
       localStorage.setItem("Meteor.loginTokenExpires", new Date(when));

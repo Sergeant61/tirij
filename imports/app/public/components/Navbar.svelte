@@ -1,5 +1,5 @@
 <script>
-  import { active } from "tinro";
+  import { active, router } from "tinro";
 
   let user = null;
 
@@ -38,7 +38,7 @@
 
       <div class="d-flex gap-2">
         {#if user}
-          <a href="/user/stores" class="btn btn-primary">My Profile</a>
+          <a href="/users/profile" class="btn btn-primary">My Profile</a>
           <a on:click={signOut} href="/" class="btn btn-danger">Sign Out</a>
         {:else}
           <a href="/auth/sign-in" class="btn btn-primary">Sign In</a>

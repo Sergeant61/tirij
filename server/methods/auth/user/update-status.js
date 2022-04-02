@@ -3,14 +3,13 @@ import SimpleSchema from 'simpl-schema';
 new ValidatedMethod({
   name: 'user.updateStatus',
   mixins: [RoleMixin],
-  roles: ['permissions.user.update'],
+  roles: ['permissions.users.updateStatus'],
   schema: new SimpleSchema({
     _id: SimpleSchema.RegEx.Id,
   }),
   run: function (data) {
     this.unblock();
     const { _id } = data
-
     const user = Meteor.users.findOne({ _id: _id });
 
     if (!user) {
@@ -32,6 +31,3 @@ new ValidatedMethod({
     })
   }
 });
-
-
-

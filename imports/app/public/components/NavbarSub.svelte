@@ -12,12 +12,20 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="d-flex flex-fill justify-content-end navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" use:active aria-current="page" href="/users/profile">Profile</a>
+        </li>
+        {#if !slug}
+          <li class="nav-item">
+            <a class="nav-link" use:active aria-current="page" href="/stores">Stores</a>
+          </li>
+        {/if}
         {#if slug}
           <li class="nav-item">
-            <a class="nav-link active" use:active aria-current="page" href="/user/store/{slug}/dashboard">Dashboard</a>
+            <a class="nav-link active" use:active aria-current="page" href="/stores/{slug}/dashboard">Store Dashboard</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" use:active aria-current="page" href="/user/store/{slug}/links">Tirij</a>
+            <a class="nav-link" use:active aria-current="page" href="/stores/{slug}/links">Links</a>
           </li>
         {/if}
       </ul>

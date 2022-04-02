@@ -7,7 +7,7 @@ new ValidatedMethod({
   roles: ['permissions.links.create'],
   schema: new SimpleSchema({
     slug: String,
-    link: LinkSchema.omit('slug', 'shortId')
+    link: LinkSchema.omit('slug', 'shortId', 'longId')
   }),
   run: function (data) {
     this.unblock();
@@ -15,6 +15,7 @@ new ValidatedMethod({
 
     link.slug = slug;
     link.shortId = shortid.generate();
+    link.longId = Random.id(50);
 
     const id = Links.insert(link);
     return Links.findOne({ _id: id });

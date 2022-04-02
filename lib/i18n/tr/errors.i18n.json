@@ -1,6 +1,4 @@
 {
   "_locale": "tr",
-  "_namespace": "errors",
-
-  "paymentTypeCannotBeNone": "Ödeme tipi hiçbiri olamaz"
+  "_namespace": "errors"
 }

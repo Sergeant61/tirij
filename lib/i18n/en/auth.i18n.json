@@ -6,7 +6,6 @@
     "marketplaceSlugRequired": "Marketplace must be specified!",
     "shopSlugRequired": "Shop must be specified!",
     "userNotFound": "No user found!",
-    "onlyWhatsgooUser": "Only WhatsGO users can do this action!",
     "tokenExpired": "Cannot be processed because the link has expired!",
     "signupFailed": "An error occurred while creating the user",
     "signupForbidden": "The system is temporarily closed to user registration",

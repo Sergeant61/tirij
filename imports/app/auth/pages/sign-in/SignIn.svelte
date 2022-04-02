@@ -4,6 +4,8 @@
   import { Loading } from "notiflix/build/notiflix-loading-aio";
   import { router } from "tinro";
 
+  let is2faEnabled = false;
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -11,21 +13,46 @@
     const password = event.target.password.value;
 
     Loading.hourglass();
-    Meteor.loginWithPassword(emailAddress, password, function (error, result) {
-      Loading.remove();
-      if (error) {
-        ErrorHandler.show(error);
-        return;
-      }
 
-      const redirect = router.location.query.get("redirect");
+    if (is2faEnabled) {
+      const code = event.target.code.value;
 
-      if (redirect) {
-        router.goto(typeof redirect === "string" ? redirect : "/");
-      } else {
-        router.goto("/");
-      }
-    });
+      Meteor.loginWithPasswordAnd2faCode(emailAddress, password, code, function (error, result) {
+        Loading.remove();
+        if (error) {
+          ErrorHandler.show(error);
+          return;
+        }
+
+        const redirect = router.location.query.get("redirect");
+
+        if (redirect) {
+          router.goto(typeof redirect === "string" ? redirect : "/");
+        } else {
+          router.goto("/");
+        }
+      });
+    } else {
+      Meteor.loginWithPassword(emailAddress, password, function (error, result) {
+        Loading.remove();
+        if (error) {
+          if (error.error === "no-2fa-code") {
+            is2faEnabled = true;
+            return;
+          }
+          ErrorHandler.show(error);
+          return;
+        }
+
+        const redirect = router.location.query.get("redirect");
+
+        if (redirect) {
+          router.goto(typeof redirect === "string" ? redirect : "/");
+        } else {
+          router.goto("/");
+        }
+      });
+    }
   };
 </script>
 
@@ -42,9 +69,16 @@
         </div>
 
         <div class="form-floating">
-          <input type="password" class="form-control brd-border-top-unset" id="password" autocomplete="on" required placeholder=" " />
+          <input type="password" class="form-control brd-border-top-unset" class:brd-border-bottom-unset={is2faEnabled} id="password" autocomplete="on" required placeholder=" " />
           <label for="password">Password</label>
         </div>
+
+        {#if is2faEnabled}
+          <div class="form-floating">
+            <input type="text" class="form-control brd-border-top-unset" id="code" autocomplete="on" required placeholder=" " />
+            <label for="code">2FA Code</label>
+          </div>
+        {/if}
 
         <div class="d-grid gap-2 py-4">
           <button class="btn btn-outline-primary btn-lg" type="submit">Sign In</button>

@@ -1,9 +1,9 @@
 import SimpleSchema from 'simpl-schema';
 
 new ValidatedMethod({
-  name: 'user.updateByUser',
+  name: 'user.updateProfile',
   mixins: [RoleMixin],
-  roles: ['permissions.user.updateProfilePassword'],
+  roles: ['permissions.users.updateProfile'],
   schema: new SimpleSchema({
     firstName: String,
     lastName: String

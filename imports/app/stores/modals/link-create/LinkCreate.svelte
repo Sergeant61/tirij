@@ -5,6 +5,7 @@
   import bootstrap from "bootstrap";
   import ErrorHandler from "/lib/utils/error-handler/client/error-handler.js";
   import { Loading } from "notiflix/build/notiflix-loading-aio";
+  import { Notify } from "notiflix/build/notiflix-notify-aio";
   import LinkExpireType from "../../helpers/link-expire-type";
 
   const slug = meta().params?.slug || null;
@@ -54,6 +55,7 @@
         return;
       }
 
+      Notify.success("Success");
       eventDispatcher("onCreatedLink", result);
       modal.hide();
       event.target.reset();

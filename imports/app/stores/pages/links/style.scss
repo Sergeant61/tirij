@@ -1,0 +1,23 @@
+.brd-rounded-start {
+  border-radius: 10px 0px 0px 10px;
+}
+.brd-rounded-end {
+  border-radius: 0px 10px 10px 0px;
+}
+.brd-download-img {
+  width: 40px;
+}
+
+// .accordion-item {
+//   &[aria-expanded="true"] {
+//     i {
+//       @extend .fa-arrow-alt-circle-down;
+//     }
+//   }
+
+//   &[aria-expanded="false"] {
+//     i {
+//       @extend .fa-arrow-alt-circle-up;
+//     }
+//   }
+// }

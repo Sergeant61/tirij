@@ -7,9 +7,9 @@
   import Links from "../pages/links/Links.svelte";
 </script>
 
-<Route path="/stores"><Stores /></Route>
+<Route path="/"><Stores /></Route>
 
-<Route path="/store/:slug/*">
+<Route path="/:slug/*">
   <Route path="/dashboard"><Dashboard /></Route>
   <Route path="/links"><Links /></Route>
 </Route>

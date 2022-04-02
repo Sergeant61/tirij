@@ -4,11 +4,12 @@
   import bootstrap from "bootstrap";
   import ErrorHandler from "/lib/utils/error-handler/client/error-handler.js";
   import { Loading } from "notiflix/build/notiflix-loading-aio";
+  import { Notify } from "notiflix/build/notiflix-notify-aio";
 
   let modalElement, modal;
 
   onMount(() => {
-    modalElement = document.getElementById("brdRoomCreateModal");
+    modalElement = document.getElementById("brdStoreCreateModal");
     modal = new bootstrap.Modal(modalElement);
 
     modalElement.addEventListener("hidden.bs.modal", function (event) {});
@@ -23,51 +24,53 @@
     const description = event.target.description.value;
 
     const obj = {
-      room: {
+      store: {
         name: name,
         description: description,
       },
     };
 
     Loading.hourglass();
-    Meteor.call("room.create", obj, function (error, result) {
+    Meteor.call("app.stores.create", obj, function (error, result) {
       Loading.remove();
       if (error) {
         ErrorHandler.show(error);
         return;
       }
 
-      eventDispatcher("onCreatedRoom", result);
+      Notify.success("Success");
+      eventDispatcher("onCreatedStore", result);
       modal.hide();
       event.target.reset();
     });
   };
 </script>
 
-<div class="modal" id="brdRoomCreateModal" tabindex="-1">
+<div class="modal" id="brdStoreCreateModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content py-1 brd-loading-modal">
       <div class="modal-header d-flex justify-content-center border-bottom-0">
-        <h4 class="fw-bolder">Room Create</h4>
+        <h4 class="fw-bolder">Store Create</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" />
       </div>
 
       <div class="modal-body mx-md-2">
-        <form on:submit={handleSubmit} id="brdRoomCreateForm">
+        <form on:submit={handleSubmit} id="brdStoreCreateForm">
           <div class="form-floating mb-2">
-            <input type="text" class="form-control" id="brdRoomCreateModal_name" name="name" placeholder=" " required autocomplete="off" />
-            <label for="brdRoomCreateModal_name">Name</label>
+            <input type="text" class="form-control" id="brdStoreCreateModal_name" name="name" placeholder=" " required autocomplete="off" />
+            <label for="brdStoreCreateModal_name">Name</label>
           </div>
 
           <div class="form-floating mb-2">
-            <textarea class="form-control" id="brdRoomCreateModal_description" name="description" placeholder=" " style="height: 100px" />
-            <label for="brdRoomCreateModal_description">Description</label>
+            <textarea type="text" class="form-control" id="brdStoreCreateModal_description" name="description" placeholder=" " style="height: 100px" autocomplete="off" />
+            <label for="brdStoreCreateModal_description">Description</label>
           </div>
+
         </form>
       </div>
 
       <div class="modal-footer border-top-0">
-        <button type="submit" form="brdRoomCreateForm" class="btn btn-primary text-white">Create</button>
+        <button type="submit" form="brdStoreCreateForm" class="btn btn-primary text-white">Create</button>
       </div>
     </div>
   </div>

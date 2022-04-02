@@ -8,7 +8,7 @@
 
   //* COMPONENTS
   import Navbar from "../../../public/components/Navbar.svelte";
-  import NavbarUser from "../../components/Navbar.svelte";
+  import NavbarSub from "../../../public/components/NavbarSub.svelte";
 
   let dashboardData = {
     shortenedUrls: {
@@ -44,7 +44,7 @@
 </script>
 
 <Navbar />
-<NavbarUser title="Dashboard" />
+<NavbarSub title="Dashboard" />
 <div class="container userPageDashboard py-3 d-flex flex-fill flex-column">
   <div class="d-flex justify-content-center align-items-center flex-wrap gap-3">
     <div class="card shadow brd-zoom-in brd-card">

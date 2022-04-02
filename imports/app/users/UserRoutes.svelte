@@ -5,6 +5,6 @@
   import UserLayout from "./layouts/UserLayout.svelte";
 </script>
 
-<Route path="/user/*">
+<Route path="/users/*">
   <UserLayout />
 </Route>

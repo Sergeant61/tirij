@@ -2,7 +2,6 @@
   import { Meteor } from "meteor/meteor";
   import { Loading } from "notiflix/build/notiflix-loading-aio";
   import { Notify } from "notiflix/build/notiflix-notify-aio";
-  import QRCode from "qrcode";
 
   //* STYLE
   import "./style.scss";
@@ -11,9 +10,12 @@
   import Navbar from "../../components/Navbar.svelte";
   import Footer from "../../components/Footer.svelte";
 
+  //* HELPERS
+  import Utility from "../../../../../lib/utils/utility/utility";
+  import QRUtil from "../../../../../lib/utils/qr-util/qr-barcode";
+
   // UTILS
-  let link = null,
-    shortLinkDomain = Meteor.settings?.public?.shortLinkDomain || null;
+  let link = null;
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -38,82 +40,23 @@
         return;
       }
 
-      result.link1 = `${Meteor.absoluteUrl()}l/${result.shortId || result._id}`;
-      if (shortLinkDomain) {
-        result.link2 = `https://${shortLinkDomain}/${result.shortId || result._id}`;
-      }
-
       link = result;
     });
   };
 
-  const generateQr = async (id, text) => {
-    const linkQr = document.getElementById(id);
-    const opts = {
-      errorCorrectionLevel: "H",
-      type: "image/jpeg",
-      quality: 1,
-      margin: 2,
-      width: 90,
-      color: {
-        dark: "#000",
-        light: "#fff",
-      },
-    };
-
-    await QRCode.toCanvas(linkQr, text, opts);
-  };
-
   const copy = (link) => {
-    navigator.clipboard.writeText(link);
-    Notify.success("Copied");
+    Utility.copyText(link);
+    Notify.success("Success");
   };
 
-  const dowlandQr = (text) => {
-    const opts = {
-      errorCorrectionLevel: "H",
-      type: "image/png",
-      quality: 1,
-      margin: 2,
-      width: 500,
-      color: {
-        dark: "#b54726",
-        light: "#dfdfd7",
-      },
-    };
-
-    QRCode.toDataURL(text, opts, function (err, url) {
-      if (err) throw err;
-
-      const link = document.createElement("a");
-      link.download = "qr.png";
-      link.href = url;
-      link.click();
-    });
+  const downloadSvgQr = async (link) => {
+    const result = await QRUtil.generateQr(link);
+    Utility.downloadString("qr.svg", result);
   };
 
-  const dowlandSvgQr = (text) => {
-    const opts = {
-      type: "svg",
-      quality: 1,
-      margin: 2,
-      width: 500,
-      color: {
-        dark: "#b54726",
-        light: "#dfdfd7",
-      },
-    };
-
-    QRCode.toString(text, opts, function (err, string) {
-      if (err) throw err;
-
-      const svgBlob = new Blob([string], { type: "image/svg+xml;charset=utf-8" });
-      const svgUrl = URL.createObjectURL(svgBlob);
-      const link = document.createElement("a");
-      link.download = "qr.svg";
-      link.href = svgUrl;
-      link.click();
-    });
+  const downloadPngQr = async (link) => {
+    const result = await QRUtil.generateQr(link, { type: "png" });
+    Utility.downloadUrl("qr.png", result);
   };
 </script>
 
@@ -129,24 +72,16 @@
       </form>
       {#if link}
         <div class="mt-3 fs-5 brd-free-input">
-          <div class="d-flex gap-2 bg-white rounded-3 p-2 justify-content-between mb-2">
-            <a class="my-auto small" target="_blank" href={link.link1}>{link.link1}</a>
-            <div class="d-flex gap-3 py-1">
-              <img on:click|preventDefault={() => copy(link.link1)} class="brd-cursor-pointer brd-dowland-img" src="/assets/svg/copy.svg" alt="link copy" />
-              <img on:click|preventDefault={() => dowlandSvgQr(link.link1)} class="brd-cursor-pointer brd-dowland-img" src="/assets/svg/svg.svg" alt="svg dowland" />
-              <img on:click|preventDefault={() => dowlandQr(link.link1)} class="brd-cursor-pointer brd-dowland-img" src="/assets/svg/png.svg" alt="png dowland" />
-            </div>
-          </div>
-          {#if link.link2}
-            <div class="d-flex gap-2 bg-white rounded-3 p-2 justify-content-between">
-              <a class="my-auto small" target="_blank" href={link.link2}>{link.link2}</a>
+          {#each link.shortLinks as shortLink}
+            <div class="d-flex gap-2 bg-white rounded-3 p-2 justify-content-between mb-2">
+              <a class="my-auto small" target="_blank" href={shortLink}>{shortLink}</a>
               <div class="d-flex gap-3 py-1">
-                <img on:click|preventDefault={() => copy(link.link2)} class="brd-cursor-pointer brd-dowland-img" src="/assets/svg/copy.svg" alt="link copy" />
-                <img on:click|preventDefault={() => dowlandSvgQr(link.link2)} class="brd-cursor-pointer brd-dowland-img" src="/assets/svg/svg.svg" alt="svg dowland" />
-                <img on:click|preventDefault={() => dowlandQr(link.link2)} class="brd-cursor-pointer brd-dowland-img" src="/assets/svg/png.svg" alt="png dowland" />
+                <img on:click|preventDefault={() => copy(shortLink)} class="brd-cursor-pointer brd-download-img" src="/assets/svg/copy.svg" alt="link copy" />
+                <img on:click|preventDefault={() => downloadSvgQr(shortLink)} class="brd-cursor-pointer brd-download-img" src="/assets/svg/svg.svg" alt="svg download" />
+                <img on:click|preventDefault={() => downloadPngQr(shortLink)} class="brd-cursor-pointer brd-download-img" src="/assets/svg/png.svg" alt="png download" />
               </div>
             </div>
-          {/if}
+          {/each}
         </div>
       {/if}
     </div>

@@ -19,7 +19,9 @@ new ValidatedMethod({
       profile: profile
     });
 
-    Accounts.sendEnrollmentEmail(userId);
+    
+    Roles.addUsersToRoles(userId, 'permissions.users', null);
+    Accounts.sendVerificationEmail(userId);
     ActionStoreCreate(userId, store);
     return ActionSignIn(emailAddress, password);
   }

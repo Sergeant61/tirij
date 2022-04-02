@@ -12,7 +12,22 @@ new ValidatedMethod({
     this.unblock();
     const { slug, _id } = data;
 
-    return Links.findOne({ _id: _id, slug: slug });
+    const link = Links.findOne({ _id: _id, slug: slug });
+    const shortLinkDomain = Meteor.settings.public.shortLinkDomain;
+
+    const shortLinks = [];
+    const longLinks = [];
+
+    shortLinks.push(`https://${shortLinkDomain}/${link.shortId}`);
+    shortLinks.push(`${Meteor.absoluteUrl()}l/${link.shortId}`);
+
+    longLinks.push(`https://${shortLinkDomain}/${link.longId}`);
+    longLinks.push(`${Meteor.absoluteUrl()}l/${link.longId}`);
+
+    link.shortLinks = shortLinks;
+    link.longLinks = longLinks;
+
+    return link;
   }
 });
 
