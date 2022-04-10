@@ -12,7 +12,7 @@
 
   //* HELPERS
   import Utility from "../../../../../lib/utils/utility/utility";
-  import QRUtil from "../../../../../lib/utils/qr-util/qr-barcode";
+  import { QRUtil } from "../../../../../lib/utils/qr-util/index";
 
   // UTILS
   let link = null;

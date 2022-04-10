@@ -5,7 +5,7 @@ const dayjs = require('dayjs')
 new ValidatedMethod({
   name: 'app.links.createFree',
   schema: new SimpleSchema({
-    link: LinkSchema.omit('slug', 'shortId', 'expireType', 'longId')
+    link: LinkSchema.omit('slug', 'shortId', 'expireAt', 'clickCount', 'expireType', 'longId')
   }),
   run: function (data) {
     this.unblock();

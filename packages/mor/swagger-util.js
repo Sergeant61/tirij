@@ -136,7 +136,7 @@ SwaggerUtil = {
 
     if(isAuth) {
       spec.paths[key].post.security = [{
-        bearerAuth: []
+        basicAuth: []
       }];
     }
 
@@ -153,9 +153,9 @@ SwaggerUtil = {
       },
       components: {
         securitySchemes: {
-          bearerAuth: {
+          basicAuth: {
             type: 'http',
-            scheme: 'bearer'
+            scheme: 'basic'
           }
         }
       },

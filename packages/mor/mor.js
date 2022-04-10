@@ -1,6 +1,7 @@
 export const name = 'mor';
 import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 import query from 'array-query';
+import { compareSync } from 'bcrypt';
 
 checkNpmVersions({
   'simpl-schema': '1.12.0'
@@ -9,14 +10,21 @@ checkNpmVersions({
 const Fiber = require('fibers');
 MORAPIProducts = [];
 
-function getUserIdFromAuthToken(token) {
-  if (!token) {
+function getUserIdFromApiKey(publicKey, secretKey) {
+  if (!publicKey || !secretKey) {
     return null;
   }
 
-  var user = Meteor.users.findOne({
-    'services.resume.loginTokens.hashedToken': Accounts._hashLoginToken(token)
-  }, { fields: { _id: 1 } });
+  const apiKey = ApiKeys.findOne({ publicKey: publicKey });
+  if (!apiKey) {
+    return null;
+  }
+
+  if (!compareSync(secretKey, apiKey.secretKey)) {
+    return null;
+  }
+
+  const user = Meteor.users.findOne({ _id: apiKey.createdUserId }, { fields: { _id: 1 } });
   if (user) {
     return user._id;
   }
@@ -24,16 +32,39 @@ function getUserIdFromAuthToken(token) {
   return null;
 }
 
+const options = {}
+
+const max = Meteor.settings.mor?.max;
+const windowMs = Meteor.settings.mor?.windowMs;
+
+if (max) {
+  options.max = max;
+}
+
+if (windowMs) {
+  options.windowMs = windowMs;
+}
+
+const pickerRateLimiter = new PickerRateLimiter(options);
+Picker.middleware(pickerRateLimiter);
+
 Picker.middleware(function (req, res, next) {
   if (req.headers && req.headers.authorization) {
-    var parts = req.headers.authorization.split(' ');
+    const parts = req.headers.authorization.split(' ');
 
     if (parts.length === 2) {
-      var scheme = parts[0];
-      var credentials = parts[1];
+      const scheme = parts[0];
+      const base64 = parts[1];
 
-      if (/^Bearer$/i.test(scheme)) {
-        req.authToken = credentials;
+      if (/^Basic$/i.test(scheme)) {
+        const buff = Buffer.from(base64, 'base64');
+        const apiKeys = buff.toString('utf-8');
+        const apiKeyParts = apiKeys.split(':');
+
+        if (apiKeyParts.length === 2) {
+          req.publicKey = apiKeyParts[0];
+          req.secretKey = apiKeyParts[1];
+        }
       }
     }
   }
@@ -43,7 +74,7 @@ Picker.middleware(function (req, res, next) {
 
 Picker.middleware(function (req, res, next) {
   Fiber(function () {
-    var userId = getUserIdFromAuthToken(req.authToken);
+    const userId = getUserIdFromApiKey(req.publicKey, req.secretKey);
     if (userId) {
       req.userId = userId;
     }
@@ -52,12 +83,45 @@ Picker.middleware(function (req, res, next) {
   }).run();
 });
 
+const postRoutes = Picker.filter(function(req, res) {
+  return req.method === "POST";
+});
 
-Picker.route(`/api/methods/:methodName`, function (params, request, response, next) {
+postRoutes.route(`/api/methods/:methodName`, function (params, request, response, next) {
+  const product = MORAPIProducts.find(MORAPIProduct => {
+    return MORAPIProduct.spec.paths[request._parsedUrl.pathname];
+  });
+
+  if (!product) {
+    response.writeHead(404, { 'Content-Type': 'application/json' });
+    response.write(JSON.stringify({ error: { message: 'End point not found.' } }));
+    response.end();
+    return;
+  }
+
   const fiber = Fiber(function (body) {
     const onError = function (error) {
       response.setHeader('Content-Type', 'application/json');
-      response.statusCode = parseInt(error.error) || 500;
+
+      let statusCode = 400;
+      if (isNaN(error.error) && typeof error.error === 'string') {
+        switch (error.error) {
+          case 'unauthorized':
+            statusCode = 401;
+            break;
+          case 'forbidden':
+          case 'not-verified':
+            statusCode = 403;
+            break;
+          case 'schema-error':
+            statusCode = 422;
+            break;
+        }
+      } else if (!isNaN(error.error)) {
+        statusCode = parseInt(error.error);
+      }
+
+      response.statusCode = statusCode;
       response.write(JSON.stringify({
         error: error || {}
       }));
@@ -91,6 +155,10 @@ Meteor.startup(() => {
   Object.keys(ValidatedMethods).forEach(function (validatedMethodName) {
     const validatedMethod = ValidatedMethods[validatedMethodName];
     const schema = validatedMethod.schema;
+    if (!schema) {
+      return;
+    }
+
     let isAuth = false;
 
     if (validatedMethod.requiredUserType || validatedMethod.roles) {

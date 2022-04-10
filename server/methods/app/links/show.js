@@ -13,6 +13,11 @@ new ValidatedMethod({
     const { slug, _id } = data;
 
     const link = Links.findOne({ _id: _id, slug: slug });
+
+    if (!link) {
+      throw new Meteor.Error(404, 'Short url not found.');
+    }
+
     const shortLinkDomain = Meteor.settings.public.shortLinkDomain;
 
     const shortLinks = [];

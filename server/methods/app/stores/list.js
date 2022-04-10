@@ -4,7 +4,7 @@ new ValidatedMethod({
   name: 'app.stores.list',
   mixins: [SignedInMixin],
   schema: new SimpleSchema({
-    options: { type: QueryOptionsSchema, optional: true }
+    options: QueryOptionsSchema
   }),
   run: async function (data) {
     this.unblock();

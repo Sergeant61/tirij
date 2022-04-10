@@ -16,6 +16,7 @@ bordo:create-user@0.0.1
 bordo:last-edit-user@0.0.1
 bordo:mor@0.0.1
 bordo:non-deletable@0.0.1
+bordo:picker-rate-limiter@0.0.1
 bordo:slugify@0.0.1
 bordo:soft-remove@0.0.1
 caching-compiler@1.2.2

@@ -6,7 +6,7 @@ new ValidatedMethod({
   roles: ['permissions.links.read'],
   schema: new SimpleSchema({
     slug: String,
-    options: { type: QueryOptionsSchema, optional: true }
+    options: QueryOptionsSchema
   }),
   run: function (data) {
     this.unblock();

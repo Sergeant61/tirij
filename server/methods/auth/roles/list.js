@@ -1,7 +1,9 @@
+import SimpleSchema from 'simpl-schema';
+
 new ValidatedMethod({
   name: 'roles.list',
   mixins: [SignedInMixin],
-  validate: function () { },
+  validate: new SimpleSchema({}).validator(),
   run: function () {
     this.unblock();
 

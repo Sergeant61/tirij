@@ -21,7 +21,7 @@
   //* HELPERS
   import LinkExpireType from "../../helpers/link-expire-type";
   import Utility from "../../../../../lib/utils/utility/utility";
-  import QRUtil from "../../../../../lib/utils/qr-util/qr-barcode";
+  import { QRUtil } from "../../../../../lib/utils/qr-util/index";
   import formatDateTime from "../../../../../lib/helper/format-date-time.js";
   import truncate from "../../../../../lib/helper/truncate";
 

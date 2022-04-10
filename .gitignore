@@ -3,4 +3,5 @@ node_modules/
 tests/screenshots
 tests/videos
 settings-local.json
+settings-prod.json
 server/smtp.js

@@ -2,13 +2,13 @@ import SimpleSchema from 'simpl-schema';
 
 new ValidatedMethod({
   name: 'user.create',
-  schema: new SimpleSchema({
+  validate: new SimpleSchema({
     emailAddress: String,
     password: String,
     plan: { type: String, optional: true },
     profile: UserProfileSchema.omit('isAdmin'),
     store: StoreSchema
-  }),
+  }).validator(),
   run: function (data) {
     this.unblock();
     const { emailAddress, password, profile, store } = data

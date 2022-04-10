@@ -7,7 +7,7 @@ new ValidatedMethod({
   schema: new SimpleSchema({
     slug: String,
     _id: SimpleSchema.RegEx.Id,
-    link: LinkSchema.omit('slug', 'shortId')
+    link: LinkSchema.omit('slug', 'shortId', 'longId')
   }),
   run: function (data) {
     this.unblock();

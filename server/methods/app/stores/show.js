@@ -7,7 +7,6 @@ new ValidatedMethod({
   schema: new SimpleSchema({
     slug: String
   }),
-  validate: function () { },
   run: async function (data) {
     this.unblock();
     return Stores.findOne({ slug: data.slug });

@@ -4,10 +4,10 @@ new ValidatedMethod({
   name: 'user.updateProfile',
   mixins: [RoleMixin],
   roles: ['permissions.users.updateProfile'],
-  schema: new SimpleSchema({
+  validate: new SimpleSchema({
     firstName: String,
     lastName: String
-  }),
+  }).validator(),
   run: function (data) {
     this.unblock();
     const { firstName, lastName} = data;

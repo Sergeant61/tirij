@@ -4,9 +4,9 @@ new ValidatedMethod({
   name: 'user.roles.list',
   mixins: [RoleMixin],
   roles: ['permissions.users.read'],
-  schema: new SimpleSchema({
+  validate: new SimpleSchema({
     userId: { type: SimpleSchema.RegEx.Id }
-  }),
+  }).validator(),
   run: function (data) {
     this.unblock();
     const { userId } = data

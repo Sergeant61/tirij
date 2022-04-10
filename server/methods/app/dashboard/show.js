@@ -3,9 +3,9 @@ import SimpleSchema from 'simpl-schema';
 new ValidatedMethod({
   name: 'app.dashboard.show',
   mixins: [SignedInMixin],
-  schema: new SimpleSchema({
+  validate: new SimpleSchema({
     slug: String,
-  }),
+  }).validator(),
   run: async function (data) {
     this.unblock();
     const { slug } = data;
