@@ -55,3 +55,4 @@ bordo:create-user
 bordo:non-deletable
 bordo:mor
 bordo:picker-rate-limiter
+service-configuration
