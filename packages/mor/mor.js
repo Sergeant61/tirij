@@ -1,11 +1,6 @@
 export const name = 'mor';
-import { checkNpmVersions } from 'meteor/tmeasday:check-npm-versions';
 import query from 'array-query';
 import { compareSync } from 'bcrypt';
-
-checkNpmVersions({
-  'simpl-schema': '1.12.0'
-}, 'bordo:mor');
 
 const Fiber = require('fibers');
 MORAPIProducts = [];

@@ -16,18 +16,19 @@ Package.onUse(function (api) {
   api.use('mongo');
   api.use('meteorhacks:picker');
   api.use('mdg:validated-method');
-  api.use('tmeasday:check-npm-versions');
   api.use('bordo:picker-rate-limiter');
   api.use('bordo:create-user');
   api.use('bordo:auto-dates');
 
   api.addFiles('./lib/collection/api-keys.js', ['server']);
-  api.addFiles('./lib/index.js', ['client', 'server']);
+  api.addFiles('./lib/index.js', ['server']);
   api.addFiles('swagger-util.js', ['server']);
   api.addFiles('mor.js', ['server']);
   api.export('MORAPIProducts', 'server');
 });
 
 Npm.depends({
-  'array-query': '0.1.2'
+  'array-query': '0.1.2',
+  'simpl-schema': '1.12.0',
+  'bcrypt': '5.0.1'
 });
