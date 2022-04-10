@@ -10,14 +10,7 @@
     time -= 1;
   }, 1000);
 
-  const _to = window.localStorage.getItem("to");
-  if (to === _to) {
-    clearInterval(id);
-    window.location.href = to;
-  }
-
   setTimeout(function () {
-    window.localStorage.setItem("to", to);
     clearInterval(id);
     window.location.href = to;
   }, adPageDisplayTime);

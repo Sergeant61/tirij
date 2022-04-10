@@ -16,7 +16,7 @@ Meteor.setInterval(function () {
 ActionGetLink = function (_id) {
   let res = { redirectUrl: `${Meteor.absoluteUrl()}error/not-found` };
 
-  let link = Links.findOne({ $or: [{ _id: _id }, { shortId: _id }] });
+  let link = Links.findOne({ $or: [{ _id: _id }, { shortId: _id }, { longId: _id }] });
   let plan = null;
   let requestLinkData = null;
 
