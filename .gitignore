@@ -5,3 +5,5 @@ tests/videos
 settings-local.json
 settings-prod.json
 server/smtp.js
+
+version.desktop

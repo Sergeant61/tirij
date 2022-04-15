@@ -2,6 +2,7 @@
   "name": "svelte-app",
   "private": true,
   "scripts": {
+    "desktop": "meteor-desktop",
     "svelte-check": "svelte-check",
     "start": "meteor --settings settings-local.json --port 5000",
     "test": "meteor test --once --driver-package meteortesting:mocha",
@@ -50,7 +51,10 @@
     }
   },
   "devDependencies": {
+    "@meteor-community/meteor-desktop": "^3.0.1",
     "@types/bootstrap": "^5.1.9",
+    "electron": "6.1.7",
+    "electron-builder": "21.2.0",
     "eslint-plugin-svelte3": "^3.4.0",
     "svelte-check": "^2.4.3",
     "svelte-preprocess": "^4.10.2",
