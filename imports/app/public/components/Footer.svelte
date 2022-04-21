@@ -15,7 +15,7 @@
           <a href="https://github.com/Sergeant61/links" target="_blank" class="text-muted text-decoration-none">Github</a>
         </li>
         <li class="list-inline-item">
-          <a href="https://www.npmjs.com/package/links-api" target="_blank" class="text-muted text-decoration-none">Npm Module</a>
+          <a href="https://www.npmjs.com/package/tirij-api" target="_blank" class="text-muted text-decoration-none">Npm Module</a>
         </li>
       </ul>
     </div>

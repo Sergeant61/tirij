@@ -269,7 +269,7 @@
             <p class="small">Automate the url shortening process in your applications using the Npm Module.</p>
           </div>
           <div class="card-body p-3">
-            <a href="https://www.npmjs.com/package/links-api" target="_blank">Go Npm Module</a>
+            <a href="https://www.npmjs.com/package/tirij-api" target="_blank">Go Npm Module</a>
           </div>
         </div>
 

@@ -32,7 +32,7 @@
           <a href="https://github.com/Sergeant61/links" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Github</a>
         </li>
         <li class="nav-item">
-          <a href="https://www.npmjs.com/package/links-api" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Npm Module</a>
+          <a href="https://www.npmjs.com/package/tirij-api" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Npm Module</a>
         </li>
       </ul>
 
