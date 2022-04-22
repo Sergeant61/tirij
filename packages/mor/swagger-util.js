@@ -3,47 +3,49 @@ import SimpleSchema from 'simpl-schema';
 SwaggerUtil = {
   _paths: {},
 
-  processArrays: function(root) {
-    if(typeof root != 'object') {
+  processArrays: function (root) {
+    if (typeof root != 'object') {
       return root;
     }
-  
+
     const removedKeys = [];
-  
+
     for (const [key, value] of Object.entries(root)) {
-      if(value.type !== 'array') {
+      if (value.type !== 'array') {
         continue;
       }
-      
+
       const itemsKey = `${key}.$`;
       value.items = root[itemsKey];
       removedKeys.push(itemsKey);
     }
-  
-    removedKeys.forEach(function(removedKey) {
+
+    removedKeys.forEach(function (removedKey) {
       delete root[removedKey];
     });
-  
+
     return root;
   },
-  
-  parser: function(definition) {
+
+  parser: function (definition) {
     let result = {};
 
-    if(definition.type instanceof SimpleSchema) {
+    if (definition.type?._schema) {
       result = SwaggerUtil.parseObject(definition.type._schema);
-    } else if(typeof definition.type === 'string' && definition.type.startsWith('SimpleSchema.')) {
+    } else if (typeof definition.type === 'string' && definition.type.startsWith('SimpleSchema.')) {
       result = {
         type: definition.type.split('.')[1].toLowerCase()
       };
-    } else if(typeof definition.type === 'array') {
+    } else if (typeof definition.type === 'array') {
       result = {
         type: 'array',
         items: []
       };
-    } else if(definition.type.name === 'Date') {
+    } else if (definition.type.name === 'Date') {
+      const date = new Date();
       result = {
-        type: 'string'
+        type: `string`,
+        enum: ['Date(${date.getTime()})', 'Date(${date.toISOString()})', '${date.toISOString()}']
       };
     } else {
       result = {
@@ -51,47 +53,47 @@ SwaggerUtil = {
       };
     }
 
-    if(definition.allowedValues) {
+    if (definition.allowedValues) {
       result.enum = definition.allowedValues;
     }
 
     return result;
   },
-  
-  parseObject: function(objectDefinition) {
+
+  parseObject: function (objectDefinition) {
     const result = {
       type: 'object',
       properties: {},
       required: []
     };
 
-    Object.keys(objectDefinition).forEach(function(key) {
+    Object.keys(objectDefinition).forEach(function (key) {
       const field = objectDefinition[key];
       const type = field.type;
       const optional = field.optional;
       const allowedValues = field.allowedValues;
       const definitions = type.definitions;
-      
-      if(definitions.length === 1) {
+
+      if (definitions.length === 1) {
         result.properties[key] = SwaggerUtil.parser(definitions[0]);
       } else {
         result.properties[key] = {
-          oneOf: definitions.map(function(definition) {
+          oneOf: definitions.map(function (definition) {
             return SwaggerUtil.parser(definition);
           })
         };
       }
-  
-      if(!optional) {
+
+      if (!optional) {
         result.required.push(key);
       }
-  
-      if(allowedValues) {
+
+      if (allowedValues) {
         result.properties[key].enum = allowedValues;
       }
     });
 
-    if(result.required.length === 0) {
+    if (result.required.length === 0) {
       delete result.required;
     }
 
@@ -99,16 +101,16 @@ SwaggerUtil = {
     return result;
   },
 
-  createPath: function(spec, methodName, schema, isAuth) {
+  createPath: function (spec, methodName, schema, isAuth) {
     const key = `/api/methods/${methodName}`;
     const methodNameParts = methodName.split('.');
     let tags = [methodNameParts[0]];
 
-    if(methodNameParts.length > 2) {
-      tags = methodNameParts.slice(1,2);
+    if (methodNameParts.length > 2) {
+      tags = methodNameParts.slice(1, 2);
     }
 
-    if(!spec.paths) {
+    if (!spec.paths) {
       spec.paths = {}
     }
 
@@ -123,7 +125,7 @@ SwaggerUtil = {
       }
     };
 
-    if(schema) {
+    if (schema) {
       spec.paths[key].post.requestBody = {
         required: true,
         content: {
@@ -134,7 +136,7 @@ SwaggerUtil = {
       };
     }
 
-    if(isAuth) {
+    if (isAuth) {
       spec.paths[key].post.security = [{
         basicAuth: []
       }];
@@ -143,7 +145,7 @@ SwaggerUtil = {
     return spec.paths[key];
   },
 
-  generateSwagger: function(spec) {
+  generateSwagger: function (spec) {
     return Object.assign({
       openapi: '3.0.3',
       info: {

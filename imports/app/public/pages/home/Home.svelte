@@ -87,8 +87,8 @@
     </div>
   </div>
 
-  <div class="flex-grow-1">
-    <div class="px-lg-5 py-lg-4 p-3 my-2 bg-light">
+  <div class="flex-grow-1 d-flex flex-column">
+    <div class="px-lg-5 py-lg-4 p-3 my-2 bg-light d-none">
       <h3 class="text-decoration-underline">Plans</h3>
 
       <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
@@ -250,7 +250,7 @@
       </div>
     </div>
 
-    <div class="px-lg-5 py-lg-4 p-3 my-2 bg-light">
+    <div class="flex-fill px-lg-5 py-lg-4 p-3 my-2 bg-light">
       <h3 class="text-decoration-underline">Features</h3>
       <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
         <div class="card shadow brd-zoom-in brd-card">

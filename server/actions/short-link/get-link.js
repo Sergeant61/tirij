@@ -82,6 +82,9 @@ ActionGetLink = function (_id) {
     }
   });
 
-  RequestLinkDatas[_id].isViewed = true;
+  if (RequestLinkDatas[_id]) {
+    RequestLinkDatas[_id].isViewed = true;
+  }
+
   return res;
 }
