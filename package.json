@@ -33,7 +33,7 @@
     "simpl-schema": "^1.12.0",
     "slugify": "^1.4.6",
     "svelte": "^3.46.4",
-    "swagger-ui": "^4.6.1",
+    "swagger-ui": "^4.10.3",
     "sweetalert2": "^11.1.10"
   },
   "meteor": {
