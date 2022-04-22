@@ -48,10 +48,6 @@
     });
   };
   getStores();
-
-  const createdStore = () => {
-    getStores();
-  };
 </script>
 
 <Navbar />
@@ -72,18 +68,17 @@
             <div class="d-flex flex-fill gap-2 justify-content-end">
               <a href="/stores/{store.slug}/dashboard" class="btn btn-outline-success btn-sm">Choose</a>
             </div>
-
           </div>
         </div>
       {/each}
     </div>
 
     <div class="flex-grow-0">
-      <Pagination {pagination} />
+      <Pagination {pagination} on:change={getStores} />
     </div>
   {:else}
     <NotFound title="Not found stores" addTitle="Add store" bsTarget="brdStoreCreateModal" />
   {/if}
 </div>
 
-<StoreCreate on:onCreatedStore={createdStore} />
+<StoreCreate on:onCreatedStore={getStores} />

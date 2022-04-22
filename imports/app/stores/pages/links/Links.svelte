@@ -71,10 +71,6 @@
   };
   getLinks();
 
-  const createdLink = () => {
-    getLinks();
-  };
-
   const deleteLink = (_id) => {
     Confirm.show(
       "Links App",
@@ -204,11 +200,11 @@
     </div>
 
     <div class="flex-grow-0">
-      <Pagination {pagination} />
+      <Pagination {pagination} on:change={getLinks} />
     </div>
   {:else}
     <NotFound title="Not found links" addTitle="Add link" bsTarget="brdLinkCreateModal" />
   {/if}
 
-  <LinkCreate on:onCreatedLink={createdLink} />
+  <LinkCreate on:onCreatedLink={getLinks} />
 </div>

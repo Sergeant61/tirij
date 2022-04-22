@@ -49,38 +49,37 @@
 
   const previous = () => {
     if (pagination.currentPage > 1) {
-      pagination.currentPage = pagination.currentPage - 1
+      pagination.currentPage = pagination.currentPage - 1;
     }
 
     eventDispatcher("change", pagination);
-  }
+  };
 
   const next = () => {
-    if(pages.length > 0) {
+    if (pages.length > 0) {
       if (pagination.currentPage < pages[pages.length - 1].value) {
-        pagination.currentPage = parseInt(pagination.currentPage) + 1
+        pagination.currentPage = parseInt(pagination.currentPage) + 1;
       }
     } else {
-      pagination.currentPage = parseInt(pagination.currentPage) + 1
+      pagination.currentPage = parseInt(pagination.currentPage) + 1;
     }
-    
-    eventDispatcher("change", pagination);
-  }
 
+    eventDispatcher("change", pagination);
+  };
 </script>
 
 <nav class="d-flex justify-content-center py-2 px-1">
   <ul class="pagination">
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Previous" on:click="{previous}">
+      <a class="page-link" href={'#'} aria-label="Previous" on:click|preventDefault={previous}>
         <span aria-hidden="true">&laquo;</span>
       </a>
     </li>
     {#each pages as page (page.value)}
-      <li class="page-item" class:active={page.value == currentPage}><a class="page-link" href="#" on:click={selectPage(page.value)}>{page.text}</a></li>
+      <li class="page-item" class:active={page.value == currentPage}><a class="page-link" href={'#'} on:click|preventDefault={selectPage(page.value)}>{page.text}</a></li>
     {/each}
     <li class="page-item">
-      <a class="page-link" href="#" aria-label="Next" on:click="{next}">
+      <a class="page-link" href={'#'} aria-label="Next" on:click|preventDefault={next}>
         <span aria-hidden="true">&raquo;</span>
       </a>
     </li>
