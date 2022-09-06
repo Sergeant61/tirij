@@ -1,5 +1,6 @@
 <script>
   import { active, router } from "tinro";
+import SwitchTheme from "./SwitchTheme.svelte";
 
   let user = null;
 
@@ -16,9 +17,9 @@
   }
 </script>
 
-<nav class="navbar navbar-expand-sm navbar-light bg-light">
+<nav class="navbar navbar-expand-sm navbar-light rounded-3 bg-light">
   <div class="container-fluid">
-    <a href="/" class="fs-2">Tirij</a>
+    <a href="/" class="tj-navbar-logo fs-2"></a>
     <!-- <a href="/"><img src="/assets/images/svelte-logo-horizontal.svg" alt="" height="50" class="d-inline-block align-text-top" /> </a> -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" />
@@ -35,6 +36,8 @@
           <a href="https://www.npmjs.com/package/tirij-api" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Npm Module</a>
         </li>
       </ul>
+
+      <SwitchTheme />
 
       <div class="d-flex gap-2">
         {#if user}

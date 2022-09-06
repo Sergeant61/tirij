@@ -2,7 +2,7 @@
   import { active } from "tinro";
 </script>
 
-<div class="componentFooter bg-light py-2">
+<div class="componentFooter bg-light py-2 rounded-3">
   <div class="container-fluid">
     <div class="d-flex justify-content-between flex-fill">
       <a class="fs-3" href="/"> Tirij </a>

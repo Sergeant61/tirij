@@ -4,7 +4,7 @@
   import { meta } from "tinro";
 
   //* STYLE
-  import "./style.scss";
+//  import "./style.scss";
 
   //* COMPONENTS
   import Navbar from "../../../public/components/Navbar.svelte";
