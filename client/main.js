@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import App from '../imports/app/App.svelte';
 import './configs';
-import switchTeheme from '/lib/helper/switch-theme';
 
 Meteor.startup(() => {
   const app = new App({
@@ -10,7 +9,7 @@ Meteor.startup(() => {
 
   let theme = localStorage.getItem('theme'); //kayıtlı temayı oku ('light', 'dark', ya da 'undefined')
   theme = (theme == 'dark') ? 'dark' : 'light'; //kayıtlı tema dark ise light yap, tanımlanmamışsa da light yap
-  let themeStyleUrl = `/assets/css/styles/styles-${theme}-theme.css`;
+  let themeStyleUrl = `/assets/css/theme-styles/styles-${theme}-theme.css`;
   localStorage.setItem('theme', theme); //local storage a temayı kaydet
   document.querySelector('link#tj-theme').setAttribute('href', themeStyleUrl);
 });
