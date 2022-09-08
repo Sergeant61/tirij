@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 $font-family-base: "Montserrat", sans-serif;
+
 $primary: #f7756e;
 $secondary: #edd2cb;
 $success:#0f9757;
@@ -10,9 +11,16 @@ $warning:#dec711;
 $light:#543c52;
 $dark:#f1e8e6;
 $dark-theme-special: #42243d;
-$body-color: $secondary;
-$table-striped-bg:            $dark-theme-special;
+
+$body-color: #fff;
+
+.card{
+  background-color: $light !important;
+}
+
+
 //*AŞAĞIDAKİ PARAMETRELER HER TEMADA AYNI KALACAK, TEK BİR DOSYADA TOPLANABİLİR
+
 $themeCustomRadius: 10px;
 $font-size-base: 0.9rem;
 
@@ -22,7 +30,6 @@ $utilities: (
     responsive: true,
     values: (
       0: 0,
-      4:4,
       25: 0.25,
       50: 0.5,
       75: 0.75,
@@ -31,10 +38,4 @@ $utilities: (
   ),
 );
 
-
 @import "./../../../node_modules/bootstrap/scss/bootstrap.scss";
-
-.card{
-  background-color: $light !important;
-}
-
