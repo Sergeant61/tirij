@@ -1,7 +1,7 @@
-const handler = (req, res) => {
+const handler = (req, res, slug = null) => {
   const splited = req.url.split('?')?.[0] || '';
   const _id = splited.substring(splited.lastIndexOf('/')).replace('/', '');
-  const result = ActionGetLink(_id);
+  const result = ActionGetLink(_id, slug);
 
   res.statusMessage = 'Orientation';
   res.writeHead(result.statusCode || 302, { Location: result.redirectUrl });
@@ -24,6 +24,13 @@ WebApp.connectHandlers.use('/', function (req, res, next) {
   if (host === (Meteor.settings?.public?.shortLinkDomain || null)) {
     handler(req, res);
   } else {
-    return next();
+
+    const domain = Domains.findOne({ host: host.replace(':5000', '') });
+
+    if (domain) {
+      handler(req, res, domain.slug);
+    } else {
+      return next();
+    }
   }
 });

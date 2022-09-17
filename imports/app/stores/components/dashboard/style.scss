@@ -1,0 +1,14 @@
+.dashboardComponentDashboard {
+  .brd-card {
+    width: 300px;
+    height: 150px;
+    border-radius: 15px;
+    border: unset;
+    box-shadow: 0px 0px 62px 14px rgba(0, 0, 0, 0.12);
+
+    .card-header {
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+    }
+  }
+}
