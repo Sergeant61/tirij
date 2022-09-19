@@ -11,6 +11,6 @@ import { onMount } from "svelte";
   
 </script>
 
-<div class="form-check form-switch me-3">
+<div class="form-check form-switch me-3 ms-auto">
   <input on:change={()=>{switchTeheme();}} id="radioSwitchTheme" class="form-check-input" type="checkbox">
 </div>

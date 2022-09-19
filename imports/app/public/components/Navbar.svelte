@@ -1,7 +1,8 @@
 <script>
   import { active, router } from "tinro";
-import SwitchTheme from "./SwitchTheme.svelte";
+  import SwitchTheme from "./SwitchTheme.svelte";
 
+  export let hideCollapseMenu;
   let user = null;
 
   const signOut = (event) => {
@@ -25,17 +26,20 @@ import SwitchTheme from "./SwitchTheme.svelte";
       <span class="navbar-toggler-icon" />
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-sm-0">
-        <li class="nav-item">
-          <a href="/api" class="nav-link" use:active active-class="fw-bold" aria-current="about">Api</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://github.com/Sergeant61/links" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Github</a>
-        </li>
-        <li class="nav-item">
-          <a href="https://www.npmjs.com/package/tirij-api" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Npm Module</a>
-        </li>
-      </ul>
+      {#if hideCollapseMenu == true}
+        {:else}
+          <ul class="navbar-nav me-auto mb-2 mb-sm-0 ms-sm-3">
+            <li class="nav-item">
+              <a href="/api" class="nav-link" use:active active-class="fw-bold" aria-current="about">Api</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://github.com/Sergeant61/links" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Github</a>
+            </li>
+            <li class="nav-item">
+              <a href="https://www.npmjs.com/package/tirij-api" target="_blank" class="nav-link" active-class="fw-bold" aria-current="about">Npm Module</a>
+            </li>
+          </ul>
+      {/if}
 
       <SwitchTheme />
 

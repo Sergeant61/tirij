@@ -8,12 +8,14 @@
   import ForgotPasswordVerify from "../pages/forgot-password-verify/ForgotPasswordVerify.svelte";
   import SetPassword from "../pages/set-password/SetPassword.svelte";
   import Footer from "../../public/components/Footer.svelte";
+  import Navbar from "../../public/components/Navbar.svelte";
 
   //* COMPONENTS
 </script>
 
 <div class="d-flex flex-column min-vh-100">
-  <div class="d-flex flex-fill px-0">
+  <Navbar hideCollapseMenu={true}/>
+  <div class="d-flex flex-fill px-0 mt-2">
     <Route path="/sign-in"><SignIn /></Route>
     <Route path="/sign-up"><SignUp /></Route>
     <Route path="/forgot-password"><ForgotPassword /></Route>

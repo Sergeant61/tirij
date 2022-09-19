@@ -1,6 +1,6 @@
 @import './../font-awesome/style';
 @import './../intl-tel-input/style';
-@import './../bootstrap/style-dark-theme';
+@import './../bootstrap/dark-theme/style';
 
 .form-switch .form-check-input {
   width: 3.5em !important;
@@ -8,11 +8,10 @@
 }
 
 .tj-navbar-logo{
-  min-width: 100px;
+  min-width: 200px;
+  width: 200px;
   min-height: 70px;
-  width: 100px;
-  height: 70px;
-  background-image: url('/assets/images/logo-dark-theme.png');
+  background-image: url('/assets/images/logo.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;

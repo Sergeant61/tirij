@@ -57,7 +57,7 @@
   };
 </script>
 
-<div class="container-fluid bg-light">
+<div class="container-fluid bg-light rounded-3">
   <div class="d-flex flex-column flex-fill align-items-center h-100">
     <div class="form-sign">
       <h1 class="fw-bolder display-3">Sign Up</h1>
