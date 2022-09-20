@@ -13,10 +13,16 @@ Meteor.setInterval(function () {
   });
 }, 1000 * 30); // 1 minute
 
-ActionGetLink = function (_id) {
+ActionGetLink = function (_id, slug = null) {
   let res = { redirectUrl: `${Meteor.absoluteUrl()}error/not-found` };
 
-  let link = Links.findOne({ $or: [{ _id: _id }, { shortId: _id }, { longId: _id }] });
+  const query = { $or: [{ _id: _id }, { shortId: _id }, { longId: _id }] }
+
+  if (slug) {
+    query.slug = slug;
+  }
+
+  let link = Links.findOne(query);
   let plan = null;
   let requestLinkData = null;
 

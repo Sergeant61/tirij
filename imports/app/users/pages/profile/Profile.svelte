@@ -38,10 +38,10 @@
         <div class="tab-pane fade" id="v-pills-api" role="tabpanel" aria-labelledby="v-pills-api-tab">
           <ApiKeys />
         </div>
-
+        <!-- 
         <div class="tab-pane fade" id="v-pills-subscription" role="tabpanel" aria-labelledby="v-pills-subscription-tab">
           <Subscription />
-        </div>
+        </div>        -->
       </div>
     </div>
   </div>
