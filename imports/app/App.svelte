@@ -6,7 +6,7 @@
   import StoreRoutes from "./stores/StoreRoutes.svelte";
 </script>
 
-<div id="app" class="vh-100 d-flex flex-column">
+<div id="app" class="vh-100 d-flex flex-column container py-3">
   <PublicRoutes />
   <AuthRoutes />
   <UserRoutes />

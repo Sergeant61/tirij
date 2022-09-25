@@ -4,9 +4,9 @@
   let slug = meta().params?.slug || null;
 </script>
 
-<nav class="navbar navbar-expand-sm navbar-light bg-warning">
+<nav class="navbar navbar-expand-sm rounded-3 bg-primary">
   <div class="container-fluid">
-    <span class="navbar-brand">{title}</span>
+    <h4 class="text-white fw-bold">{title}</h4>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon" />
     </button>

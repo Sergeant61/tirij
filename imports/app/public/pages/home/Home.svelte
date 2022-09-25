@@ -4,7 +4,7 @@
   import { Notify } from "notiflix/build/notiflix-notify-aio";
 
   //* STYLE
-  import "./style.scss";
+  // import "./style.scss";
 
   //* COMPONENTS
   import Navbar from "../../components/Navbar.svelte";
@@ -13,6 +13,7 @@
   //* HELPERS
   import Utility from "../../../../../lib/utils/utility/utility";
   import { QRUtil } from "../../../../../lib/utils/qr-util/index";
+  import switchTheme from "../../../../../lib/helper/switch-theme";
 
   // UTILS
   let link = null;
@@ -63,9 +64,9 @@
 <Navbar />
 <div class="publicPageHome d-flex flex-fill flex-column">
   <div class="flex-grow-0">
-    <div class="bg-light px-lg-5 py-lg-4 p-3 mt-2">
-      <h1>Shorten with Tirij</h1>
-      <p class="lead">Shorten your long links for free with Tirij, and automate your applications as you wish with Api and Npm Modules.</p>
+    <div class="bg-light px-lg-5 py-lg-4 p-3 mt-2 rounded-3">
+      <h1>Shorten with meteor-links</h1>
+      <p class="lead">Shorten your long links for free with meteor-links, and automate your applications as you wish with Api and Npm Modules.</p>
       <form on:submit={handleSubmit} id="brdFreeLinkCreate" class="d-flex gap-2 input-group-lg brd-form-focus-unset">
         <input type="text" class="form-control brd-free-input" placeholder="Write your long url" name="longUrl" aria-label="Long url" />
         <button class="btn btn-outline-secondary" type="submit">Create</button>
@@ -250,38 +251,48 @@
       </div>
     </div>
 
-    <div class="flex-fill px-lg-5 py-lg-4 p-3 my-2 bg-light">
+    <div class="flex-fill px-lg-5 py-lg-4 p-3 my-2 bg-light rounded-3">
       <h3 class="text-decoration-underline">Features</h3>
-      <div class="d-flex justify-content-center align-items-center flex-wrap gap-4">
-        <div class="card shadow brd-zoom-in brd-card">
-          <div class="card-body p-3">
-            <h4>Use API</h4>
-            <p class="small">Automate the url shortening process in your applications using Api.</p>
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="shadow brd-zoom-in d-flex flex-column h-100">
+            <div class="p-3">
+              <h4>Use API</h4>
+              <p class="small">Automate the url shortening process in your applications using Api.</p>
+            </div>
+            <div class="mt-auto p-3">
+              <a href="/api">Go Swagger</a>
+            </div>
           </div>
-          <div class="card-body p-3">
-            <a href="/api">Go Swagger</a>
+        </div>
+        <div class="col-md-4">
+          <div class="shadow brd-zoom-in d-flex flex-column h-100">
+            <div class="p-3">
+              <h4>Npm Module</h4>
+              <p class="small">Automate the url shortening process in your applications using the Npm Module.</p>
+            </div>
+            <div class="mt-auto p-3">
+              <a href="https://www.npmjs.com/package/tirij-api" target="_blank">Go Npm Module</a>
+            </div>
           </div>
         </div>
 
-        <div class="card shadow brd-zoom-in brd-card">
-          <div class="card-body p-3">
-            <h4>Npm Module</h4>
-            <p class="small">Automate the url shortening process in your applications using the Npm Module.</p>
-          </div>
-          <div class="card-body p-3">
-            <a href="https://www.npmjs.com/package/tirij-api" target="_blank">Go Npm Module</a>
+        <div class="col-md-4">
+          <div class="shadow brd-zoom-in d-flex flex-column h-100">
+            <div class="p-3">
+              <h4>Customize for you</h4>
+              <p class="small">meteor-links is developed as open source. If you want, you can make a deployment for yourself.</p>
+            </div>
+            <div class="mt-auto p-3">
+              <a href="https://github.com/Sergeant61/links" target="_blank">Go Github</a>
+            </div>
           </div>
         </div>
+          
+        
 
-        <div class="card shadow brd-zoom-in brd-card">
-          <div class="card-body p-3">
-            <h4>Customize for you</h4>
-            <p class="small">Tirij is developed as open source. If you want, you can make a deployment for yourself.</p>
-          </div>
-          <div class="card-body p-3">
-            <a href="https://github.com/Sergeant61/links" target="_blank">Go Github</a>
-          </div>
-        </div>
+        
       </div>
     </div>
   </div>

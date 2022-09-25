@@ -6,7 +6,7 @@
   import { Notify } from "notiflix/build/notiflix-notify-aio";
 
   //* STYLE
-  import "./style.scss";
+//  import "./style.scss";
 
   //* COMPONENTS
   import ControlMenu from "../../../public/components/ControlMenu.svelte";
