@@ -63,7 +63,7 @@
 
   <div class="d-flex gap-3 justify-content-end alert alert-info" role="alert">
     <span>
-      With Tirij Api, you can automate your application. Tirij uses Basic Auth to authenticate incoming requests. Api key consists of two parts, namely Public Key and Secret Key. <strong> Secret Key is displayed once during creation and encrypted by the system. </strong> The user who created the API keys has the authority.
+      With meteor-links Api, you can automate your application. meteor-links uses Basic Auth to authenticate incoming requests. Api key consists of two parts, namely Public Key and Secret Key. <strong> Secret Key is displayed once during creation and encrypted by the system. </strong> The user who created the API keys has the authority.
     </span>
     <div class="my-auto">
       <button class="btn btn-primary" on:click={createApiKey}>Create</button>

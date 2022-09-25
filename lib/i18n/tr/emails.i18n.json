@@ -3,7 +3,7 @@
   "_namespace": "emails",
 
   "enrollment": {
-    "subject": "Tirij: Hoşgeldiniz"
+    "subject": "meteor-links: Hoşgeldiniz"
   },
 
   "resetPassword": {

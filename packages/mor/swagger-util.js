@@ -151,7 +151,7 @@ SwaggerUtil = {
       info: {
         description: '',
         version: '',
-        title: 'Tirij Api'
+        title: 'meteor-links Api'
       },
       components: {
         securitySchemes: {

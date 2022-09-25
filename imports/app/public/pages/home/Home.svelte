@@ -65,8 +65,8 @@
 <div class="publicPageHome d-flex flex-fill flex-column">
   <div class="flex-grow-0">
     <div class="bg-light px-lg-5 py-lg-4 p-3 mt-2 rounded-3">
-      <h1>Shorten with Tirij</h1>
-      <p class="lead">Shorten your long links for free with Tirij, and automate your applications as you wish with Api and Npm Modules.</p>
+      <h1>Shorten with meteor-links</h1>
+      <p class="lead">Shorten your long links for free with meteor-links, and automate your applications as you wish with Api and Npm Modules.</p>
       <form on:submit={handleSubmit} id="brdFreeLinkCreate" class="d-flex gap-2 input-group-lg brd-form-focus-unset">
         <input type="text" class="form-control brd-free-input" placeholder="Write your long url" name="longUrl" aria-label="Long url" />
         <button class="btn btn-outline-secondary" type="submit">Create</button>
@@ -282,7 +282,7 @@
           <div class="shadow brd-zoom-in d-flex flex-column h-100">
             <div class="p-3">
               <h4>Customize for you</h4>
-              <p class="small">Tirij is developed as open source. If you want, you can make a deployment for yourself.</p>
+              <p class="small">meteor-links is developed as open source. If you want, you can make a deployment for yourself.</p>
             </div>
             <div class="mt-auto p-3">
               <a href="https://github.com/Sergeant61/links" target="_blank">Go Github</a>
