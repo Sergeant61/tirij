@@ -7,6 +7,240 @@
     "paths": {
       "/*": [
         "./*"
+      ],
+      "meteor/mongo": [
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/local_collection_driver.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/collection.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/connection_options.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/doc_fetcher.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/mongo_driver.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/mongo_utils.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/observe_multiplex.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/oplog_observe_driver.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/oplog_tailing.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/oplog_v2_converter.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/polling_observe_driver.js",
+        "/Users/bordo-enes/.meteor/packages/mongo/1.14.6/web.browser/remote_collection_driver.js"
+      ],
+      "meteor/reactive-var": [
+        "/Users/bordo-enes/.meteor/packages/reactive-var/1.0.11/web.browser/reactive-var.js"
+      ],
+      "meteor/es5-shim": [
+        "/Users/bordo-enes/.meteor/packages/es5-shim/4.8.0/web.browser/client.js",
+        "/Users/bordo-enes/.meteor/packages/es5-shim/4.8.0/web.browser/console.js",
+        "/Users/bordo-enes/.meteor/packages/es5-shim/4.8.0/web.browser/cordova.js",
+        "/Users/bordo-enes/.meteor/packages/es5-shim/4.8.0/web.browser/export_globals.js",
+        "/Users/bordo-enes/.meteor/packages/es5-shim/4.8.0/web.browser/import_globals.js"
+      ],
+      "meteor/ecmascript": [
+        "/Users/bordo-enes/.meteor/packages/ecmascript/0.16.2/web.browser/ecmascript.js"
+      ],
+      "meteor/shell-server": [
+        "/Users/bordo-enes/.meteor/packages/shell-server/0.5.0/web.browser/main.js",
+        "/Users/bordo-enes/.meteor/packages/shell-server/0.5.0/web.browser/shell-server.js"
+      ],
+      "meteor/hot-module-replacement": [
+        "/Users/bordo-enes/.meteor/packages/hot-module-replacement/0.5.1/web.browser/hot-api.js",
+        "/Users/bordo-enes/.meteor/packages/hot-module-replacement/0.5.1/web.browser/client.js",
+        "/Users/bordo-enes/.meteor/packages/hot-module-replacement/0.5.1/web.browser/server.js"
+      ],
+      "meteor/zodern:melte": [
+        "/Users/bordo-enes/.meteor/packages/zodern_melte/1.5.2/web.browser/tracker.js",
+        "/Users/bordo-enes/.meteor/packages/zodern_melte/1.5.2/web.browser/SvelteCompiler.js",
+        "/Users/bordo-enes/.meteor/packages/zodern_melte/1.5.2/web.browser/hmr-runtime.js",
+        "/Users/bordo-enes/.meteor/packages/zodern_melte/1.5.2/web.browser/plugin.js",
+        "/Users/bordo-enes/.meteor/packages/zodern_melte/1.5.2/web.browser/proxy-adapter.js"
+      ],
+      "meteor/reactive-dict": [
+        "/Users/bordo-enes/.meteor/packages/reactive-dict/1.3.0/web.browser/migration.js",
+        "/Users/bordo-enes/.meteor/packages/reactive-dict/1.3.0/web.browser/reactive-dict.js"
+      ],
+      "meteor/accounts-password": [
+        "/Users/bordo-enes/.meteor/packages/accounts-password/2.3.1/web.browser/password_client.js",
+        "/Users/bordo-enes/.meteor/packages/accounts-password/2.3.1/web.browser/email_templates.js",
+        "/Users/bordo-enes/.meteor/packages/accounts-password/2.3.1/web.browser/password_server.js"
+      ],
+      "meteor/accounts-2fa": [
+        "/Users/bordo-enes/.meteor/packages/accounts-2fa/2.0.0/web.browser/2fa-client.js",
+        "/Users/bordo-enes/.meteor/packages/accounts-2fa/2.0.0/web.browser/2fa-server.js"
+      ],
+      "meteor/random": [
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/main_client.js",
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/AbstractRandomGenerator.js",
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/AleaRandomGenerator.js",
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/BrowserRandomGenerator.js",
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/NodeRandomGenerator.js",
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/createAleaGenerator.js",
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/createRandom.js",
+        "/Users/bordo-enes/.meteor/packages/random/1.2.0/web.browser/main_server.js"
+      ],
+      "meteor/force-ssl": [
+        "/Users/bordo-enes/.meteor/packages/force-ssl/1.1.0/web.browser/force_ssl_both.js",
+        "/Users/bordo-enes/.meteor/packages/force-ssl/1.1.0/web.browser/force_ssl_server.js"
+      ],
+      "meteor/aldeed:collection2": [
+        "/Users/bordo-enes/.meteor/packages/aldeed_collection2/3.5.0/web.browser/collection2.js",
+        "/Users/bordo-enes/.meteor/packages/aldeed_collection2/3.5.0/web.browser/lib.js"
+      ],
+      "meteor/aldeed:schema-index": [
+        "/Users/bordo-enes/.meteor/packages/aldeed_schema-index/3.0.0/web.browser/client.js",
+        "/Users/bordo-enes/.meteor/packages/aldeed_schema-index/3.0.0/web.browser/common.js",
+        "/Users/bordo-enes/.meteor/packages/aldeed_schema-index/3.0.0/web.browser/server.js"
+      ],
+      "meteor/alanning:roles": [
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/roles/roles_common.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/roles/client/debug.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/roles/client/uiHelpers.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/roles/client/subscriptions.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/header.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/layouts.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/noteOfTheDay.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/routing.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/signin.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/lib/app.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/lib/patches.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/client/lib/polyfills.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/server/startup/fixtures.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/server/startup/publish.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/main/server/startup/validateNewUser.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/manageUsers/client/manage-users.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/manageUsers/client/manageController.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/manageUsers/client/routing.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/manageUsers/server/manageUsers.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/secrets/model.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/secrets/client/routing.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/secrets/client/secrets.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/secrets/client/secretsController.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/secrets/server/fixtures.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router-advanced/secrets/server/secrets.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/model.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/client/client.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/client/layouts.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/client/manage-users.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/client/routing.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/client/secrets.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/client/lib/globals.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/flow-router/server/server.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/iron-router/model.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/iron-router/client/client.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/iron-router/client/manage-users.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/iron-router/client/routing.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/iron-router/client/secrets.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/iron-router/client/lib/globals.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/examples/iron-router/server/server.js",
+        "/Users/bordo-enes/.meteor/packages/alanning_roles/3.4.0/web.browser/roles/roles_server.js"
+      ],
+      "meteor/mdg:validated-method": [
+        "/Users/bordo-enes/.meteor/packages/mdg_validated-method/1.2.0/web.browser/validated-method.js"
+      ],
+      "meteor/percolate:migrations": [
+        "/Users/bordo-enes/.meteor/packages/percolate_migrations/1.0.3/web.browser/migrations_server.js",
+        "/Users/bordo-enes/.meteor/packages/percolate_migrations/1.0.3/web.browser/example/example.js"
+      ],
+      "meteor/email": [
+        "/Users/bordo-enes/.meteor/packages/email/2.2.1/web.browser/email.js"
+      ],
+      "meteor/meteorhacks:picker": [
+        "/Users/bordo-enes/.meteor/packages/meteorhacks_picker/1.0.3/web.browser//packages/meteorhacks_picker.js"
+      ],
+      "meteor/dburles:collection-helpers": [
+        "/Users/bordo-enes/.meteor/packages/dburles_collection-helpers/1.1.0/web.browser/collection-helpers.js"
+      ],
+      "meteor/reywood:publish-composite": [
+        "/Users/bordo-enes/.meteor/packages/reywood_publish-composite/1.7.3/web.browser/lib/publish_composite.js",
+        "/Users/bordo-enes/.meteor/packages/reywood_publish-composite/1.7.3/web.browser/lib/doc_ref_counter.js",
+        "/Users/bordo-enes/.meteor/packages/reywood_publish-composite/1.7.3/web.browser/lib/logging.js",
+        "/Users/bordo-enes/.meteor/packages/reywood_publish-composite/1.7.3/web.browser/lib/publication.js",
+        "/Users/bordo-enes/.meteor/packages/reywood_publish-composite/1.7.3/web.browser/lib/subscription.js",
+        "/Users/bordo-enes/.meteor/packages/reywood_publish-composite/1.7.3/web.browser/lib/published_document.js",
+        "/Users/bordo-enes/.meteor/packages/reywood_publish-composite/1.7.3/web.browser/lib/published_document_list.js"
+      ],
+      "meteor/littledata:synced-cron": [
+        "/Users/bordo-enes/.meteor/packages/littledata_synced-cron/1.5.1/web.browser/synced-cron-server.js"
+      ],
+      "meteor/momentjs:moment": [
+        "/Users/bordo-enes/.meteor/packages/momentjs_moment/2.29.1/web.browser/moment.js",
+        "/Users/bordo-enes/.meteor/packages/momentjs_moment/2.29.1/web.browser/export.js"
+      ],
+      "meteor/mizzao:user-status": [
+        "/Users/bordo-enes/.meteor/packages/mizzao_user-status/1.0.1/web.browser/client/monitor.js",
+        "/Users/bordo-enes/.meteor/packages/mizzao_user-status/1.0.1/web.browser/demo/client/main.js",
+        "/Users/bordo-enes/.meteor/packages/mizzao_user-status/1.0.1/web.browser/demo/packages/meteor-user-status/package.js",
+        "/Users/bordo-enes/.meteor/packages/mizzao_user-status/1.0.1/web.browser/demo/packages/meteor-user-status/client/monitor.js",
+        "/Users/bordo-enes/.meteor/packages/mizzao_user-status/1.0.1/web.browser/demo/packages/meteor-user-status/server/status.js",
+        "/Users/bordo-enes/.meteor/packages/mizzao_user-status/1.0.1/web.browser/demo/server/main.js",
+        "/Users/bordo-enes/.meteor/packages/mizzao_user-status/1.0.1/web.browser/server/status.js"
+      ],
+      "meteor/edgee:slingshot": [
+        "/Users/bordo-enes/.meteor/packages/edgee_slingshot/0.7.1/web.browser//packages/edgee_slingshot.js"
+      ],
+      "meteor/sakulstra:aggregate": [
+        "/Users/bordo-enes/.meteor/packages/sakulstra_aggregate/1.4.4/web.browser/index.js"
+      ],
+      "meteor/http": [
+        "/Users/bordo-enes/.meteor/packages/http/1.4.4/web.browser/httpcall_client.js",
+        "/Users/bordo-enes/.meteor/packages/http/1.4.4/web.browser/httpcall_common.js",
+        "/Users/bordo-enes/.meteor/packages/http/1.4.4/web.browser/httpcall_server.js"
+      ],
+      "meteor/remcoder:chronos": [
+        "/Users/bordo-enes/.meteor/packages/remcoder_chronos/0.5.0/web.browser/chronos.js"
+      ],
+      "meteor/montiapm:agent": [
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/common/utils.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/common/unify.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/models/base_error.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/retry.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/ntp.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/utils.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/models/errors.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/error_reporters/zone.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/error_reporters/window_error.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/error_reporters/meteor_debug.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/error_reporters/unhandled_rejection.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/error_reporters/tracker.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/client/kadira.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/profiler/client.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/common/default_error_filters.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/common/send.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/auto_connect.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/check_for_oplog.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/conflicting_agents.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/docsize_cache.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/environment_variables.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/jobs.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/kadira.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/sourcemaps.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/utils.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/wait_time_builder.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/async.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/db.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/email.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/error.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/fast_render.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/fs.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/gc.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/http.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/instrument.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/mongo_driver_events.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/picker.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/set_labels.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/wrap_ddp_stringify.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/wrap_observers.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/wrap_routers.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/wrap_server.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/wrap_session.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/wrap_subscription.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/hijack/wrap_webapp.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/models/0model.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/models/errors.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/models/http.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/models/methods.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/models/pubsub.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/models/system.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/tracer/default_filters.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/tracer/tracer.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/lib/tracer/tracer_store.js",
+        "/Users/bordo-enes/.meteor/packages/montiapm_agent/2.45.1/web.browser/tools/mock_engine.js"
       ]
     }
   },

@@ -1,1 +1,0 @@
-Bu proje Meteor.js ve Svelte ile yazıldı.
