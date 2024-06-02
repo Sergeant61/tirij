@@ -4,9 +4,14 @@
   "scripts": {
     "svelte-check": "svelte-check",
     "start": "meteor --settings settings-local.json --port 5000",
-    "test": "meteor test --once --driver-package meteortesting:mocha",
-    "test-app": "TEST_WATCH=1 meteor test --full-app --driver-package meteortesting:mocha",
-    "visualize": "meteor --production --extra-packages bundle-visualizer"
+    "deploy:prod": "mup deploy --config=.deploy/prod/mup.js --settings=.deploy/prod/settings.json",
+    "stop:prod": "mup stop --config=.deploy/prod/mup.js --settings=.deploy/prod/settings.json",
+    "restart:prod": "mup restart --config=.deploy/prod/mup.js --settings=.deploy/prod/settings.json",
+    "reconfig:prod": "mup reconfig --config=.deploy/prod/mup.js --settings=.deploy/prod/settings.json",
+    "setup:prod": "mup setup --config=.deploy/prod/mup.js --settings=.deploy/prod/settings.json",
+    "ssh:prod": "mup ssh --config=.deploy/prod/mup.js --settings=.deploy/prod/settings.json",
+    "logs:prod": "mup logs --tail 200 -f --config=.deploy/prod/mup.js --settings=.deploy/prod/settings.json",
+    "shell:prod": "meteor mongo shell --settings=.deploy/prod/settings.json"
   },
   "dependencies": {
     "@babel/runtime": "^7.15.4",

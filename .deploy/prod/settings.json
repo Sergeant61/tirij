@@ -1,0 +1,26 @@
+{
+  "public": {
+    "rootDomain": "link.recepozen.com",
+    "shortLinkDomain": "link.recepozen.dev",
+    "adPageDisplayTime": 10000
+  },
+  "mor": {
+    "max": 20,
+    "windowMs": 60000
+  },
+  "monti": {
+    "appId": "MSF58J7rKfz5PZrYD",
+    "appSecret": "e19bbe97-a15d-422d-b667-1f227db23472"
+  },
+  "email": {
+    "from": "notify <notify@recepozen.com>",
+    "bcc": "recep@bordo.io"
+  },
+  "smtp": {
+    "username": "notify@recepozen.com",
+    "password": "God.3698001",
+    "server": "smtp.yandex.com.tr",
+    "port": "465",
+    "protocol": "smtps"
+  }
+}
